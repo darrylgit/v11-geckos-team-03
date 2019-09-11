@@ -12,3 +12,58 @@ body {
   box-sizing: border-box;
   height: 100vh;
   background-color: blue; }
+
+.board {
+  padding: 1rem; }
+  .board__listDisplay {
+    background-color: rbga(0 0 0 0);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-gap: 0 10px; }
+
+.addList__form {
+  background-color: #c5c9eb;
+  width: 30rem;
+  border-radius: 0.5rem; }
+
+.form {
+  padding: 0.5rem; }
+  .form__group:not(:last-child) {
+    margin-bottom: 0.5rem; }
+  .form__input {
+    display: block;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 3.5rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid blue;
+    color: #333; }
+  .form__submit {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 2rem;
+    background-color: #4fa644;
+    color: white;
+    cursor: pointer; }
+
+.list {
+  width: 100%;
+  background-color: #c5c9eb;
+  border-radius: 0.5rem;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden; }
+  .list__heading {
+    font-size: 2rem;
+    width: 90%; }
+  .list__remove {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 2rem; }

@@ -1,0 +1,23 @@
+.list {
+  width: 100%;
+  background-color: $list-background;
+  border-radius: 0.5rem;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+
+  &__heading {
+    font-size: 2rem;
+    width: 90%;
+  }
+
+  &__remove {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+}
