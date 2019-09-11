@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.scss";
+import NavBar from "../navbar/NavBar";
 
 class App extends React.Component {
   constructor(props) {
@@ -8,7 +8,11 @@ class App extends React.Component {
   }
 
   render() {
-    return <div className="App"></div>;
+    return (
+      <div className="App">
+        <NavBar></NavBar>
+      </div>
+    );
   }
 }
 

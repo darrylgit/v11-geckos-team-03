@@ -12,3 +12,11 @@ body {
   box-sizing: border-box;
   height: 100vh;
   background-color: blue; }
+
+body {
+  font-family: "Roboto", "Arial", sans-serif; }
+
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  font-size: 2em; }
