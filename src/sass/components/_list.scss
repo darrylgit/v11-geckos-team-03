@@ -2,39 +2,68 @@
   width: 100%;
   background-color: $list-background;
   border-radius: 0.5rem;
-  margin: 0 0 0 0;
-  padding: 1rem;
   min-height: 100px;
   position: relative;
-  //overflow: hidden;
 
   &__heading {
     font-size: 2rem;
     width: 90%;
     overflow: hidden;
     font-family: sans-serif;
+    margin: 1rem 1rem 1.5rem 1rem;
   }
 
   &__remove {
     position: absolute;
-    top: 0.5rem;
+    top: 3px;
     right: 1rem;
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 3rem;
 
     &:hover {
       color: red;
     }
   }
-}
 
-.list:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+  &__add-card {
+    padding: 1rem;
+    font-family: sans-serif;
+    border-radius: 0 0 0.5rem 0.5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    cursor: pointer;
+
+    &:link,
+    &:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    :hover {
+      background-color: $list-background-dark;
+    }
+
+    &--plus {
+      font-size: 4rem;
+      margin-right: 1rem;
+    }
+
+    &--label {
+      font-size: 2rem;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+  }
 }
