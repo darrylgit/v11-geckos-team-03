@@ -1,0 +1,15 @@
+.board {
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($list-width, 1fr));
+  grid-gap: 1rem 1rem;
+}
+
+.addList {
+  border-radius: 0.5rem;
+  background-color: $list-background;
+  &__form {
+    width: 100%;
+  }
+}

@@ -1,5 +1,6 @@
+import Board from "../Board";
+
 import React from "react";
-import "./App.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -7,8 +8,25 @@ class App extends React.Component {
     this.state = {};
   }
 
+  // Render two elements: a navbar and a board
   render() {
-    return <div className="App"></div>;
+    return (
+      <div className="App">
+        <nav
+          className="navbar"
+          style={{
+            width: "100%",
+            textAlign: "center",
+            fontSize: "3rem",
+            color: "white",
+            fontFamily: "sans-serif"
+          }}
+        >
+          Navbar Here
+        </nav>
+        <Board />
+      </div>
+    );
   }
 }
 

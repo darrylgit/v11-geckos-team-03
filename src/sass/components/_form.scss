@@ -1,0 +1,35 @@
+.form {
+  padding: 0.5rem;
+
+  &__group:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 3.5rem;
+    padding: 0 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: #333;
+
+    &--validation {
+      border-bottom-style: solid;
+      border-bottom-width: 3px;
+      border-bottom-color: #555;
+    }
+  }
+
+  &__submit {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 2rem;
+    background-color: $color-primary;
+    color: white;
+    cursor: pointer;
+  }
+}
