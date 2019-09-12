@@ -8,6 +8,7 @@ class App extends React.Component {
     this.state = {};
   }
 
+  // Render two elements: a navbar and a board
   render() {
     return (
       <div className="App">
@@ -17,7 +18,8 @@ class App extends React.Component {
             width: "100%",
             textAlign: "center",
             fontSize: "3rem",
-            color: "white"
+            color: "white",
+            fontFamily: "sans-serif"
           }}
         >
           Navbar Here

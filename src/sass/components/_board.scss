@@ -1,18 +1,15 @@
 .board {
   padding: 1rem;
 
-  &__listDisplay {
-    background-color: rbga(0 0 0 0);
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax($list-width, 1fr));
-    grid-gap: 0 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($list-width, 1fr));
+  grid-gap: 1rem 1rem;
 }
 
 .addList {
+  border-radius: 0.5rem;
+  background-color: $list-background;
   &__form {
-    background-color: $list-background;
-    width: $list-width;
-    border-radius: 0.5rem;
+    width: 100%;
   }
 }
