@@ -21,7 +21,7 @@ class AddList extends React.Component {
     this.props.onSubmit(this.state.listTitle);
 
     // Clear input
-    this.setState({ listTitle: "", inputValid: false });
+    this.setState({ listTitle: "", inputValid: false, borderColor: "#555" });
   };
 
   handleChange = e => {
