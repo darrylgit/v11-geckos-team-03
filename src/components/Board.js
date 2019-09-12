@@ -3,12 +3,7 @@ import List from "./List";
 import React from "react";
 
 class Board extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { lists: [] };
-  }
-
-  currentLists = [];
+  state = { lists: [] };
 
   // List constructor function
   List = function(title) {
@@ -18,14 +13,16 @@ class Board extends React.Component {
 
   // Update state with new list, setting the list title as the argument 'title'
   onListSubmit = title => {
-    this.currentLists.push(new this.List(title));
-    this.setState({ lists: this.currentLists });
+    let currentLists = [...this.state.lists];
+    currentLists.push(new this.List(title));
+    this.setState({ lists: currentLists });
   };
 
   // Iterate over lists, keep only the ones that have a title other than the function argument
   removeList = title => {
-    this.currentLists = this.currentLists.filter(list => list.title !== title);
-    this.setState({ lists: this.currentLists });
+    let currentLists = [...this.state.lists];
+    currentLists = currentLists.filter(list => list.title !== title);
+    this.setState({ lists: currentLists });
   };
 
   // Function to create List components from state

@@ -31,5 +31,16 @@
     background-color: $color-primary;
     color: white;
     cursor: pointer;
+    transition: all 0.2s;
+
+    &:focus,
+    &:active {
+      outline: none;
+      transform: translateY(2px);
+    }
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
   }
 }

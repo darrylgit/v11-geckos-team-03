@@ -9,6 +9,8 @@
 .addList {
   border-radius: 0.5rem;
   background-color: $list-background;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+
   &__form {
     width: 100%;
   }

@@ -6,17 +6,18 @@
   padding: 1rem;
   min-height: 100px;
   position: relative;
-  overflow: hidden;
+  //overflow: hidden;
 
   &__heading {
     font-size: 2rem;
     width: 90%;
+    overflow: hidden;
     font-family: sans-serif;
   }
 
   &__remove {
     position: absolute;
-    top: 1rem;
+    top: 0.5rem;
     right: 1rem;
     cursor: pointer;
     font-size: 2.5rem;
@@ -25,4 +26,15 @@
       color: red;
     }
   }
+}
+
+.list:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
 }
