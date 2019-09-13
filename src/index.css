@@ -13,6 +13,10 @@ body {
   height: 100vh;
   background-color: blue; }
 
+body {
+  color: #333;
+  font-family: sans-serif; }
+
 .board {
   padding: 1rem;
   display: grid;
@@ -25,6 +29,17 @@ body {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3); }
   .addList__form {
     width: 100%; }
+
+.card {
+  display: block;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  padding: 0 1rem;
+  line-height: 3.5rem;
+  color: #333; }
+  .card:not(:last-child) {
+    margin-bottom: 1rem; }
 
 .form {
   padding: 0.5rem; }
@@ -44,7 +59,7 @@ body {
       border-bottom-width: 3px;
       border-bottom-color: #555; }
   .form__submit {
-    display: block;
+    display: inline-block;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     border: none;
@@ -58,6 +73,17 @@ body {
       transform: translateY(2px); }
     .form__submit:hover {
       background-color: #387430; }
+  .form__cancel {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    cursor: pointer; }
+    .form__cancel:hover {
+      color: red; }
 
 .list {
   width: 100%;
@@ -79,25 +105,30 @@ body {
     font-size: 3rem; }
     .list__remove:hover {
       color: red; }
-  .list__add-card {
-    padding: 1rem;
-    font-family: sans-serif;
+  .list__cards {
+    padding: 0.5rem; }
+  .list__addCard {
     border-radius: 0 0 0.5rem 0.5rem;
-    overflow: hidden;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    cursor: pointer; }
-    .list__add-card:link, .list__add-card:visited {
-      color: inherit;
-      text-decoration: none; }
-    .list__add-card :hover {
-      background-color: #9093ad; }
-    .list__add-card--plus {
-      font-size: 4rem;
-      margin-right: 1rem; }
-    .list__add-card--label {
-      font-size: 2rem; }
+    font-family: sans-serif; }
+    .list__addCard-prompt {
+      padding: 1rem;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: pointer; }
+      .list__addCard-prompt:link, .list__addCard-prompt:visited {
+        color: inherit;
+        text-decoration: none; }
+      .list__addCard-prompt--plus {
+        font-size: 4rem;
+        margin-right: 1rem; }
+      .list__addCard-prompt--label {
+        font-size: 2rem; }
+    .list__addCard-form {
+      width: 100%; }
   .list:after {
     content: "";
     position: absolute;

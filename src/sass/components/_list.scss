@@ -25,34 +25,44 @@
     }
   }
 
-  &__add-card {
-    padding: 1rem;
-    font-family: sans-serif;
+  &__cards {
+    padding: 0.5rem;
+  }
+
+  &__addCard {
     border-radius: 0 0 0.5rem 0.5rem;
-    overflow: hidden;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    font-family: sans-serif;
 
-    cursor: pointer;
+    &-prompt {
+      padding: 1rem;
 
-    &:link,
-    &:visited {
-      color: inherit;
-      text-decoration: none;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: pointer;
+
+      &:link,
+      &:visited {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &--plus {
+        font-size: 4rem;
+        margin-right: 1rem;
+      }
+
+      &--label {
+        font-size: 2rem;
+      }
     }
 
-    :hover {
-      background-color: $list-background-dark;
-    }
-
-    &--plus {
-      font-size: 4rem;
-      margin-right: 1rem;
-    }
-
-    &--label {
-      font-size: 2rem;
+    &-form {
+      width: 100%;
     }
   }
 

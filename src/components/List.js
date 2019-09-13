@@ -1,20 +1,36 @@
+import AddCard from "./AddCard";
+import Card from "./Card";
+
 import React from "react";
 
 class List extends React.Component {
-  state = {
-    backgroundColor: "#c5c9eb"
-  };
+  state = { cards: [] };
+
   removeList = () => {
     this.props.remove(this.props.listTitle);
   };
 
-  darkenBackground = () => {
-    this.setState({ backgroundColor: "#9093ad" });
+  Card = function(title) {
+    this.title = title;
   };
 
-  lightenBackground = () => {
-    this.setState({ backgroundColor: "#c5c9eb" });
+  addNewCard = title => {
+    let currentCards = [...this.state.cards];
+    currentCards.push(new this.Card(title));
+    this.setState({ cards: currentCards });
   };
+
+  // Function to create Card components from state
+  cardsArray = () =>
+    this.state.cards.map(card => {
+      return (
+        <Card
+          key={card.title}
+          cardTitle={card.title}
+          //remove={this.removeList}
+        />
+      );
+    });
 
   render() {
     return (
@@ -23,16 +39,8 @@ class List extends React.Component {
           &times;
         </div>
         <h2 className="list__heading">{this.props.listTitle}</h2>
-        <div className="list__cards"></div>
-        <div
-          className="list__add-card"
-          style={{ backgroundColor: this.state.backgroundColor }}
-          onMouseEnter={this.darkenBackground}
-          onMouseLeave={this.lightenBackground}
-        >
-          <span className="list__add-card--plus">+</span>
-          <span className="list__add-card--label">Add new card</span>
-        </div>
+        <div className="list__cards">{this.cardsArray()}</div>
+        <AddCard onSubmit={this.addNewCard} />
       </div>
     );
   }
