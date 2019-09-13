@@ -17,7 +17,7 @@ class List extends React.Component {
   componentDidMount() {
     //this.setSpansInit();
     //this.listRef.current.addEventListener("load", this.setSpans);
-    this.listRef.current.addEventListener("submit", this.setSpansUpdate);
+    //this.listRef.current.addEventListener("submit", this.setSpansUpdate);
   }
 
   setSpansInit = () => {
@@ -34,9 +34,16 @@ class List extends React.Component {
     const height = this.listRef.current.clientHeight;
     console.log(height);
 
-    const spans = Math.ceil(height / 10) + 4;
+    const spans = Math.ceil(height / 10) + 5;
     console.log(spans);
 
+    this.setState({ spans: spans });
+  };
+
+  setSpansTruncate = () => {
+    let spans = this.state.spans;
+
+    spans -= 3;
     this.setState({ spans: spans });
   };
 
@@ -78,7 +85,11 @@ class List extends React.Component {
         </div>
         <h2 className="list__heading">{this.props.listTitle}</h2>
         <div className="list__cards">{this.cardsArray()}</div>
-        <AddCard onSubmit={this.addNewCard} />
+        <AddCard
+          onSubmit={this.addNewCard}
+          setSpansUpdate={this.setSpansUpdate}
+          setSpansTruncate={this.setSpansTruncate}
+        />
       </div>
     );
   }

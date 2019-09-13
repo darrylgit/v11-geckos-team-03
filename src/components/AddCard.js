@@ -31,8 +31,10 @@ class AddCard extends React.Component {
   toggleMode = () => {
     if (this.state.mode === "prompt") {
       this.setState({ mode: "input" });
+      this.props.setSpansUpdate();
     } else {
       this.setState({ mode: "prompt" });
+      this.props.setSpansTruncate();
     }
   };
 
