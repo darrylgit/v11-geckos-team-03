@@ -4,7 +4,32 @@ import Card from "./Card";
 import React from "react";
 
 class List extends React.Component {
-  state = { cards: [] };
+  constructor(props) {
+    super(props);
+    this.state = {
+      cards: []
+      //spans: 0
+    };
+    //this.listRef = React.createRef();
+  }
+  /*
+  // Element height handlers
+  componentDidMount() {
+    //this.setSpans();
+    //this.listRef.current.addEventListener("load", this.setSpans);
+    this.listRef.current.addEventListener("submit", this.setSpans);
+  }
+
+  setSpans = () => {
+    const height = this.listRef.current.clientHeight;
+    console.log(height);
+
+    const spans = Math.ceil(height / 20) + 1;
+    console.log(spans);
+
+    this.setState({ spans: spans });
+  };
+  */
 
   removeList = () => {
     this.props.remove(this.props.listTitle);
@@ -27,14 +52,18 @@ class List extends React.Component {
         <Card
           key={card.title}
           cardTitle={card.title}
-          //remove={this.removeList}
+          //remove={this.removeCard}
         />
       );
     });
 
   render() {
     return (
-      <div className="list">
+      <div
+        className="list"
+        //ref={this.listRef}
+        //style={{ gridRowEnd: `span ${this.state.spans}` }}
+      >
         <div className="list__remove" onClick={this.removeList}>
           &times;
         </div>

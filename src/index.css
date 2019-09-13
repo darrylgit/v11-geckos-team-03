@@ -21,12 +21,13 @@ body {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  grid-gap: 1rem 1rem; }
+  grid-gap: 0 1rem; }
 
 .addList {
   border-radius: 0.5rem;
   background-color: #c5c9eb;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+  height: 100px; }
   .addList__form {
     width: 100%; }
 
