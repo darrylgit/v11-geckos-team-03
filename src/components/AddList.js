@@ -92,7 +92,7 @@ class AddList extends React.Component {
                 value={this.state.listTitle}
                 onChange={this.handleChange}
                 style={{ borderBottomColor: this.state.borderColor }}
-                placeholder="New list title..."
+                placeholder="New list toytle..."
               />
             </div>
             <div className="form__group">
