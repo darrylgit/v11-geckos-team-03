@@ -1,5 +1,6 @@
 import React from "react";
 import Board from "../Board";
+import Nav from "../navbar/NavBar";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <nav
+        {/* <nav
           className="navbar"
           style={{
             width: "100%",
@@ -22,7 +23,8 @@ class App extends React.Component {
           }}
         >
           Navbar Here
-        </nav>
+        </nav> */}
+        <Nav />
         <Board />
       </div>
     );
