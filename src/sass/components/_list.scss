@@ -2,8 +2,9 @@
   width: 100%;
   background-color: $list-background;
   border-radius: 0.5rem;
-  min-height: 100px;
+  min-height: 120px;
   position: relative;
+  margin-bottom: 1rem;
 
   &__heading {
     font-size: 2rem;

@@ -21,7 +21,8 @@ body {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  grid-gap: 0 1rem; }
+  grid-gap: 0 1rem;
+  grid-auto-rows: 1rem; }
 
 .addList {
   border-radius: 0.5rem;
@@ -90,8 +91,9 @@ body {
   width: 100%;
   background-color: #c5c9eb;
   border-radius: 0.5rem;
-  min-height: 100px;
-  position: relative; }
+  min-height: 120px;
+  position: relative;
+  margin-bottom: 1rem; }
   .list__heading {
     font-size: 2rem;
     width: 90%;

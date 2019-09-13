@@ -7,29 +7,38 @@ class List extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: []
-      //spans: 0
+      cards: [],
+      spans: 13
     };
-    //this.listRef = React.createRef();
-  }
-  /*
-  // Element height handlers
-  componentDidMount() {
-    //this.setSpans();
-    //this.listRef.current.addEventListener("load", this.setSpans);
-    this.listRef.current.addEventListener("submit", this.setSpans);
+    this.listRef = React.createRef();
   }
 
-  setSpans = () => {
+  // Element height handlers
+  componentDidMount() {
+    //this.setSpansInit();
+    //this.listRef.current.addEventListener("load", this.setSpans);
+    this.listRef.current.addEventListener("submit", this.setSpansUpdate);
+  }
+
+  setSpansInit = () => {
     const height = this.listRef.current.clientHeight;
     console.log(height);
 
-    const spans = Math.ceil(height / 20) + 1;
+    const spans = Math.ceil(height / 10);
     console.log(spans);
 
     this.setState({ spans: spans });
   };
-  */
+
+  setSpansUpdate = () => {
+    const height = this.listRef.current.clientHeight;
+    console.log(height);
+
+    const spans = Math.ceil(height / 10) + 4;
+    console.log(spans);
+
+    this.setState({ spans: spans });
+  };
 
   removeList = () => {
     this.props.remove(this.props.listTitle);
@@ -61,8 +70,8 @@ class List extends React.Component {
     return (
       <div
         className="list"
-        //ref={this.listRef}
-        //style={{ gridRowEnd: `span ${this.state.spans}` }}
+        ref={this.listRef}
+        style={{ gridRowEnd: `span ${this.state.spans}` }}
       >
         <div className="list__remove" onClick={this.removeList}>
           &times;

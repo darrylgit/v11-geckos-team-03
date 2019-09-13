@@ -6,15 +6,15 @@ class AddList extends React.Component {
     this.state = {
       listTitle: "",
       inputValid: false,
-      borderColor: "#555"
-      //spans: 0
+      borderColor: "#555",
+      spans: 0
     };
-    //this.addListRef = React.createRef();
+    this.addListRef = React.createRef();
   }
 
-  /*
   componentDidMount() {
-    this.addListRef.current.addEventListener("load", this.setSpans);
+    this.setSpans();
+    //this.addListRef.current.addEventListener("load", this.setSpans);
   }
 
   setSpans = () => {
@@ -24,7 +24,7 @@ class AddList extends React.Component {
 
     this.setState({ spans: spans });
   };
- */
+
   onFormSubmit = event => {
     event.preventDefault();
 
@@ -80,8 +80,8 @@ class AddList extends React.Component {
     return (
       <div
         className="addList"
-        //ref={this.addListRef}
-        //style={{ gridRowEnd: `span ${this.state.spans}` }}
+        ref={this.addListRef}
+        style={{ gridRowEnd: `span ${this.state.spans}` }}
       >
         <div className="addList__form">
           <form onSubmit={this.onFormSubmit} className="form">

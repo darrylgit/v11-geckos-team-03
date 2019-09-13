@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($list-width, 1fr));
   grid-gap: 0 1rem;
-  //grid-auto-rows: 1rem;
+  grid-auto-rows: 1rem;
 }
 
 .addList {
