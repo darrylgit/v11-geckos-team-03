@@ -23,7 +23,7 @@
   }
 
   &__submit {
-    display: block;
+    display: inline-block;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     border: none;
@@ -31,5 +31,31 @@
     background-color: $color-primary;
     color: white;
     cursor: pointer;
+    transition: all 0.2s;
+
+    &:focus,
+    &:active {
+      outline: none;
+      transform: translateY(2px);
+    }
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &__cancel {
+    display: inline-block;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
   }
 }
