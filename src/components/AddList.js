@@ -12,19 +12,20 @@ class AddList extends React.Component {
     this.addListRef = React.createRef();
   }
 
+  // Inialize element height on grid
   componentDidMount() {
     this.setSpans();
-    //this.addListRef.current.addEventListener("load", this.setSpans);
   }
 
   setSpans = () => {
     const height = this.addListRef.current.clientHeight;
 
-    const spans = Math.ceil(height / 10);
+    const spans = Math.floor(height / 10);
 
     this.setState({ spans: spans });
   };
 
+  // Submit handlers
   onFormSubmit = event => {
     event.preventDefault();
 

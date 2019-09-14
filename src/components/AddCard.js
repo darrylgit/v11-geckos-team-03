@@ -26,7 +26,7 @@ class AddCard extends React.Component {
     this.setState({ backgroundColor: this.backgroundColor.default });
   };
 
-  // Mode toggle
+  // Mode and height toggle
 
   toggleMode = () => {
     if (this.state.mode === "prompt") {

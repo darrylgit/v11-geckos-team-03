@@ -14,28 +14,10 @@ class List extends React.Component {
   }
 
   // Element height handlers
-  componentDidMount() {
-    //this.setSpansInit();
-    //this.listRef.current.addEventListener("load", this.setSpans);
-    //this.listRef.current.addEventListener("submit", this.setSpansUpdate);
-  }
-
-  setSpansInit = () => {
-    const height = this.listRef.current.clientHeight;
-    console.log(height);
-
-    const spans = Math.ceil(height / 10);
-    console.log(spans);
-
-    this.setState({ spans: spans });
-  };
-
   setSpansUpdate = () => {
     const height = this.listRef.current.clientHeight;
-    console.log(height);
 
     const spans = Math.ceil(height / 10) + 5;
-    console.log(spans);
 
     this.setState({ spans: spans });
   };
@@ -43,7 +25,8 @@ class List extends React.Component {
   setSpansTruncate = () => {
     let spans = this.state.spans;
 
-    spans -= 3;
+    spans -= 4;
+
     this.setState({ spans: spans });
   };
 
@@ -51,6 +34,7 @@ class List extends React.Component {
     this.props.remove(this.props.listTitle);
   };
 
+  // Add new card
   Card = function(title) {
     this.title = title;
   };
@@ -61,7 +45,6 @@ class List extends React.Component {
     this.setState({ cards: currentCards });
   };
 
-  // Function to create Card components from state
   cardsArray = () =>
     this.state.cards.map(card => {
       return (
