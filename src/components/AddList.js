@@ -1,8 +1,31 @@
 import React from "react";
 
 class AddList extends React.Component {
-  state = { listTitle: "", inputValid: false, borderColor: "#555" };
+  constructor(props) {
+    super(props);
+    this.state = {
+      listTitle: "",
+      inputValid: false,
+      borderColor: "#555",
+      spans: 0
+    };
+    this.addListRef = React.createRef();
+  }
 
+  // Inialize element height on grid
+  componentDidMount() {
+    this.setSpans();
+  }
+
+  setSpans = () => {
+    const height = this.addListRef.current.clientHeight;
+
+    const spans = Math.floor(height / 10);
+
+    this.setState({ spans: spans });
+  };
+
+  // Submit handlers
   onFormSubmit = event => {
     event.preventDefault();
 
@@ -56,7 +79,11 @@ class AddList extends React.Component {
 
   render() {
     return (
-      <div className="addList">
+      <div
+        className="addList"
+        ref={this.addListRef}
+        style={{ gridRowEnd: `span ${this.state.spans}` }}
+      >
         <div className="addList__form">
           <form onSubmit={this.onFormSubmit} className="form">
             <div className="form__group">
