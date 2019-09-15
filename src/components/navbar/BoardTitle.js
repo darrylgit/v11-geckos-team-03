@@ -12,6 +12,8 @@ class BoardTitle extends Component {
     this.setState({
       inputText: inputText
     });
+
+    event.target.style.width = `${inputText.length}rem`;
   };
 
   keyUpHandler = event => {
