@@ -26,9 +26,22 @@ body {
 
 .addList {
   border-radius: 0.5rem;
-  background-color: #c5c9eb;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
   height: 100px; }
+  .addList__prompt {
+    background-color: rgba(0, 0, 0, 0.6); }
+    .addList__prompt-button {
+      height: 100%;
+      width: 100%;
+      color: white;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem; }
+      .addList__prompt-button:hover {
+        color: #bbb; }
+  .addList__input {
+    background-color: #c5c9eb; }
   .addList__form {
     width: 100%; }
 

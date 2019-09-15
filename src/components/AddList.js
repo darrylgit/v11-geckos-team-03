@@ -30,10 +30,10 @@ class AddList extends React.Component {
   toggleMode = () => {
     if (this.state.mode === "prompt") {
       this.setState({ mode: "input" });
-      this.props.setSpansUpdate();
+      //this.props.setSpansUpdate();
     } else {
       this.setState({ mode: "prompt" });
-      this.props.setSpansTruncate();
+      //this.props.setSpansTruncate();
     }
   };
 
@@ -95,17 +95,17 @@ class AddList extends React.Component {
   render() {
     if (this.state.mode === "prompt") {
       return (
-        <div className="addList__prompt">
-          <button onClick={this.toggleMode}>
+        <div ref={this.addListRef} className="addList addList__prompt">
+          <button onClick={this.toggleMode} className="addList__prompt-button">
             <span className="addList__prompt-plus">+</span>
-            <span className="addList__prompt-label">Add new list</span>
+            <span className="addList__prompt-label"> Add new list</span>
           </button>
         </div>
       );
     } else {
       return (
         <div
-          className="addList"
+          className="addList addList__input"
           ref={this.addListRef}
           style={{ gridRowEnd: `span ${this.state.spans}` }}
         >
