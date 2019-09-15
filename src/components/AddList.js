@@ -4,6 +4,7 @@ class AddList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      mode: "prompt",
       listTitle: "",
       inputValid: false,
       borderColor: "#555",
@@ -23,6 +24,17 @@ class AddList extends React.Component {
     const spans = Math.floor(height / 10);
 
     this.setState({ spans: spans });
+  };
+
+  // Mode toggle
+  toggleMode = () => {
+    if (this.state.mode === "prompt") {
+      this.setState({ mode: "input" });
+      this.props.setSpansUpdate();
+    } else {
+      this.setState({ mode: "prompt" });
+      this.props.setSpansTruncate();
+    }
   };
 
   // Submit handlers
@@ -45,6 +57,9 @@ class AddList extends React.Component {
 
     // Clear input
     this.setState({ listTitle: "", inputValid: false, borderColor: "#555" });
+
+    // Change mode back to "prompt"
+    this.toggleMode();
   };
 
   handleChange = e => {
@@ -78,31 +93,46 @@ class AddList extends React.Component {
   };
 
   render() {
-    return (
-      <div
-        className="addList"
-        ref={this.addListRef}
-        style={{ gridRowEnd: `span ${this.state.spans}` }}
-      >
-        <div className="addList__form">
-          <form onSubmit={this.onFormSubmit} className="form">
-            <div className="form__group">
-              <input
-                type="text"
-                className="form form__input form__input--validation"
-                value={this.state.listTitle}
-                onChange={this.handleChange}
-                style={{ borderBottomColor: this.state.borderColor }}
-                placeholder="New list title..."
-              />
-            </div>
-            <div className="form__group">
-              <input type="submit" className="form__submit" value="Add List" />
-            </div>
-          </form>
+    if (this.state.mode === "prompt") {
+      return (
+        <div className="addList__prompt">
+          <button onClick={this.toggleMode}>
+            <span className="addList__prompt-plus">+</span>
+            <span className="addList__prompt-label">Add new list</span>
+          </button>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div
+          className="addList"
+          ref={this.addListRef}
+          style={{ gridRowEnd: `span ${this.state.spans}` }}
+        >
+          <div className="addList__form">
+            <form onSubmit={this.onFormSubmit} className="form">
+              <div className="form__group">
+                <input
+                  type="text"
+                  className="form form__input form__input--validation"
+                  value={this.state.listTitle}
+                  onChange={this.handleChange}
+                  style={{ borderBottomColor: this.state.borderColor }}
+                  placeholder="New list title..."
+                />
+              </div>
+              <div className="form__group">
+                <input
+                  type="submit"
+                  className="form__submit"
+                  value="Add List"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      );
+    }
   }
 }
 
