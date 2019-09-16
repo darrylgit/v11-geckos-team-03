@@ -7,7 +7,7 @@ import "../../index.css";
 class NavBar extends Component {
   render() {
     return (
-      <div className="NavBar">
+      <div className="navbar">
         <BoardTitle />
         {/* <div className="logo">Geckrello</div> */}
         {/* <div className="repo-link">Project Repo</div> */}

@@ -1,6 +1,25 @@
-.NavBar {
+.navbar {
   display: flex;
   flex-direction: row;
   padding: 1rem;
   font-size: 2em;
+
+  &__title {
+  }
+
+  &__input {
+    width: 100%;
+    padding: 5px 0;
+    max-width: 500px;
+    box-sizing: border-box;
+    background-color: $body-background-light;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  &__input--infocus {
+    background-color: white;
+  }
 }
