@@ -1,10 +1,16 @@
 .navbar {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 1rem;
-  font-size: 2em;
 
-  &__title {
+  &__logo {
+    width: 100vh;
+    padding: 5px 0;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: white;
+    text-align: center;
   }
 
   &__input {
@@ -28,5 +34,14 @@
 
   &__input--hover {
     background-color: $body-background-light;
+  }
+
+  &__projectlink {
+    width: 100%;
+    padding: 5px 0;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: white;
+    text-align: center;
   }
 }

@@ -94,18 +94,16 @@ class BoardTitle extends Component {
 
   render() {
     return (
-      <div className="navbar__title">
-        <input
-          className="navbar__input"
-          value={this.state.inputText}
-          onChange={this.inputHandler}
-          onKeyDown={this.keyDownHandler}
-          onBlur={this.onBlurHandler}
-          onFocus={this.onFocusHandler}
-          onMouseOver={this.onMouseOverHandler}
-          onMouseOut={this.onMouseOutHandler}
-        ></input>
-      </div>
+      <input
+        className="navbar__input"
+        value={this.state.inputText}
+        onChange={this.inputHandler}
+        onKeyDown={this.keyDownHandler}
+        onBlur={this.onBlurHandler}
+        onFocus={this.onFocusHandler}
+        onMouseOver={this.onMouseOverHandler}
+        onMouseOut={this.onMouseOutHandler}
+      ></input>
     );
   }
 }
