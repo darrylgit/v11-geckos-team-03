@@ -6,79 +6,90 @@ class BoardTitle extends Component {
     titleText: "Board Title"
   };
 
-  // Sets input size on first render to length of state variable titleText
+  // Initially sets size of input and page title
   componentDidMount() {
+    this.setInputSize(this.state.titleText.length);
+    this.setPageTitle();
+  }
+
+  // Sets page title and input size every time state is updated
+  componentDidUpdate() {
+    this.setPageTitle();
     this.setInputSize();
   }
 
-  // Sets input size when user types, and sets state variable inputText to current input value
+  // Updates state on user input
   inputHandler = event => {
     const inputText = event.target.value;
-
-    // Sets input size to current input value
-    event.target.value.length > 0
-      ? (event.target.size = inputText.length)
-      : (event.target.size = 1);
 
     this.setState({
       inputText: inputText
     });
   };
 
-  // If user hits Enter or Escape, calls function checkEmptyInput
+  // When user input hears Enter or Escape, calls checkEmptyInput
   keyDownHandler = event => {
     const newTitle = event.target.value;
 
-    switch (event.key) {
-      case "Enter":
-        this.checkEmptyInput(newTitle);
-        break;
-      case "Escape":
-        this.checkEmptyInput(newTitle);
-        break;
-      default:
-        break;
+    if (event.key === "Enter" || event.key === "Escape") {
+      this.checkEmptyInput(newTitle);
     }
   };
 
-  // When user clicks outside input, calls function checkEmptyInput, and sets input class for default styling
+  // Calls checkEmptyInput when input loses focus
   onBlurHandler = event => {
     const newTitle = event.target.value;
 
-    this.checkEmptyInput(newTitle);
-
     event.target.className = "navbar__input";
+
+    this.checkEmptyInput(newTitle);
   };
 
-  // When user clicks inside input, sets input class to change styling, and selects all current input text
+  // Changes input styling on focus, and selects all input text
   onFocusHandler = event => {
     event.target.className = "navbar__input navbar__input--infocus";
 
     event.target.select();
   };
 
-  // Checks if current input value is empty string; if true, sets current input value to most recently-set state variable titleText; if false, sets titleText to current input value
+  // Changes input styling on mouse over
+  onMouseOverHandler = event => {
+    document.activeElement === event.target
+      ? (event.target.className = "navbar__input navbar__input--infocus")
+      : (event.target.className = "navbar__input navbar__input--hover");
+  };
+
+  // Changes input styling on mouse out
+  onMouseOutHandler = event => {
+    document.activeElement === event.target
+      ? (event.target.className = "navbar__input navbar__input--infocus")
+      : (event.target.className = "navbar__input");
+  };
+
+  // If user input is empty, resets value to most recently saved value of titleText
+  // Otherwise, value of titleText set to current input value
   checkEmptyInput = newTitle => {
     if (newTitle === "") {
       this.setState({
         inputText: this.state.titleText
       });
-
-      this.setInputSize();
     } else {
       this.setState({
         titleText: newTitle
       });
-
-      this.setInputSize();
     }
   };
 
-  // Sets size of input based on current value
+  // Changes input width dynamically
   setInputSize = () => {
     const input = document.querySelector("input");
 
-    input.size = this.state.titleText.length;
+    input.style.width = `${this.state.inputText.length * 10 + 25}px`;
+  };
+
+  // Changes page title dynamically
+  setPageTitle = () => {
+    document.title = `${this.state.inputText} - Geckorello, a Trello Front-End Clone`;
   };
 
   render() {
@@ -91,6 +102,8 @@ class BoardTitle extends Component {
           onKeyDown={this.keyDownHandler}
           onBlur={this.onBlurHandler}
           onFocus={this.onFocusHandler}
+          onMouseOver={this.onMouseOverHandler}
+          onMouseOut={this.onMouseOutHandler}
         ></input>
       </div>
     );

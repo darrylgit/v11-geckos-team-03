@@ -152,10 +152,15 @@ body {
     padding: 5px 0;
     max-width: 500px;
     box-sizing: border-box;
-    background-color: #00a2ff;
+    background-color: blue;
     border: none;
     border-radius: 0.5rem;
     font-size: 2rem;
+    font-weight: bold;
+    color: white;
     text-align: center; }
   .navbar__input--infocus {
-    background-color: white; }
+    background-color: white;
+    color: #333; }
+  .navbar__input--hover {
+    background-color: #00a2ff; }
