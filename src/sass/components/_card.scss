@@ -3,6 +3,10 @@
     margin-bottom: 1rem;
   }
 
+  &:first-child {
+    margin-top: 0.5rem;
+  }
+
   display: block;
   background-color: #fff;
   border-radius: 0.5rem;

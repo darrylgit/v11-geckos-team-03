@@ -4,14 +4,15 @@
   border-radius: 0.5rem;
   min-height: 120px;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   &__heading {
     font-size: 2rem;
     width: 90%;
     overflow: hidden;
     font-family: sans-serif;
-    margin: 1rem 1rem 1.5rem 1rem;
+    padding: 1rem 1rem 1.5rem 1rem;
+    //background-color: red;
   }
 
   &__remove {
@@ -27,7 +28,8 @@
   }
 
   &__cards {
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    //background-color: green;
   }
 
   &__addCard {

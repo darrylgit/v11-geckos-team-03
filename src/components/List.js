@@ -11,13 +11,44 @@ class List extends React.Component {
       spans: 13
     };
     this.listRef = React.createRef();
+    this.headingRef = React.createRef();
+    this.cardsRef = React.createRef();
   }
 
   // Element height handlers
-  setSpansUpdate = () => {
-    const height = this.listRef.current.clientHeight;
+  setSpansUpdate = addCardHeight => {
+    const height =
+      this.headingRef.current.clientHeight +
+      this.cardsRef.current.clientHeight +
+      addCardHeight;
 
-    const spans = Math.ceil(height / 10) + 5;
+    console.log("heading height is " + this.headingRef.current.clientHeight);
+    console.log("cards height is " + this.cardsRef.current.clientHeight);
+    console.log("addCard height is " + addCardHeight);
+    console.log("total height is " + height);
+
+    const spans = Math.ceil(height / 10) + 1;
+
+    this.setState({ spans: spans });
+  };
+
+  setSpansUpdateForCard = addCardHeight => {
+    let cardsHeight;
+    if (this.cardsRef.current.clientHeight === 10) {
+      cardsHeight = 45;
+    } else {
+      cardsHeight = this.cardsRef.current.clientHeight + 45;
+    }
+
+    const height =
+      this.headingRef.current.clientHeight + cardsHeight + addCardHeight;
+
+    console.log("heading height is " + this.headingRef.current.clientHeight);
+    console.log("cards height is " + cardsHeight);
+    console.log("addCard height is " + addCardHeight);
+    console.log("total height is " + height);
+
+    const spans = Math.ceil(height / 10) + 1;
 
     this.setState({ spans: spans });
   };
@@ -66,12 +97,16 @@ class List extends React.Component {
         <div className="list__remove" onClick={this.removeList}>
           &times;
         </div>
-        <h2 className="list__heading">{this.props.listTitle}</h2>
-        <div className="list__cards">{this.cardsArray()}</div>
+        <h2 className="list__heading" ref={this.headingRef}>
+          {this.props.listTitle}
+        </h2>
+        <div className="list__cards" ref={this.cardsRef}>
+          {this.cardsArray()}
+        </div>
         <AddCard
           onSubmit={this.addNewCard}
           setSpansUpdate={this.setSpansUpdate}
-          setSpansTruncate={this.setSpansTruncate}
+          setSpansUpdateForCard={this.setSpansUpdateForCard}
         />
       </div>
     );
