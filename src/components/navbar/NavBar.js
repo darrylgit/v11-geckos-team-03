@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import BoardTitle from "./BoardTitle";
 import Logo from "./Logo";
-import ProjectLink from "./ProjectLink";
+import Menu from "./Menu";
 
 import "../../index.css";
 
@@ -12,7 +12,7 @@ class NavBar extends Component {
       <div className="navbar">
         <Logo />
         <BoardTitle />
-        <ProjectLink />
+        <Menu />
         {/* <div className="repo-link">Project Repo</div> */}
         {/* 'page-menu' will be a component */}
         {/* <div className="page-menu">Menu</div> */}

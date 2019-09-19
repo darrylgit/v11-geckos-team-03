@@ -84,7 +84,7 @@ class BoardTitle extends Component {
   setInputSize = () => {
     const input = document.querySelector("input");
 
-    input.style.width = `${this.state.inputText.length * 10 + 25}px`;
+    input.style.width = `${this.state.inputText.length * 10 + 30}px`;
   };
 
   // Changes page title dynamically
@@ -94,16 +94,18 @@ class BoardTitle extends Component {
 
   render() {
     return (
-      <input
-        className="navbar__input"
-        value={this.state.inputText}
-        onChange={this.inputHandler}
-        onKeyDown={this.keyDownHandler}
-        onBlur={this.onBlurHandler}
-        onFocus={this.onFocusHandler}
-        onMouseOver={this.onMouseOverHandler}
-        onMouseOut={this.onMouseOutHandler}
-      ></input>
+      <div>
+        <input
+          className="navbar__input"
+          value={this.state.inputText}
+          onChange={this.inputHandler}
+          onKeyDown={this.keyDownHandler}
+          onBlur={this.onBlurHandler}
+          onFocus={this.onFocusHandler}
+          onMouseOver={this.onMouseOverHandler}
+          onMouseOut={this.onMouseOutHandler}
+        ></input>
+      </div>
     );
   }
 }

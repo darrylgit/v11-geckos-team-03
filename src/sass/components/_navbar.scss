@@ -1,28 +1,28 @@
 .navbar {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 1rem;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "title . menu";
 
   &__logo {
-    width: 100vh;
+    width: 100vw;
     padding: 5px 0;
-    box-sizing: border-box;
+    grid-area: header;
     font-weight: bold;
+    font-size: 1.5em;
     color: white;
     text-align: center;
   }
 
   &__input {
-    width: 100%;
+    margin-left: 10px;
     padding: 5px 0;
-    max-width: 500px;
-    box-sizing: border-box;
+    grid-area: title;
     background-color: $body-background;
     border: none;
     border-radius: 0.5rem;
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 2em;
+    font-weight: 700;
     color: white;
     text-align: center;
   }
@@ -36,12 +36,13 @@
     background-color: $body-background-light;
   }
 
-  &__projectlink {
-    width: 100%;
-    padding: 5px 0;
-    box-sizing: border-box;
-    font-weight: bold;
+  &__menu {
+    grid-area: menu;
+    margin-right: 30px;
     color: white;
-    text-align: center;
+  }
+
+  &__menu h1 {
+    font-weight: 100;
   }
 }
