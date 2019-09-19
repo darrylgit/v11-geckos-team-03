@@ -1,22 +1,16 @@
 import React from "react";
 
 class AddList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mode: "prompt",
-      listTitle: "",
-      inputValid: false,
-      borderColor: "#555",
-      spans: 0
-    };
-    this.addListRef = React.createRef();
-  }
+  state = {
+    mode: "prompt",
+    listTitle: "",
+    inputValid: false,
+    borderColor: "#555",
+    spans: 0
+  };
 
-  // Inialize element height on grid
-  componentDidMount() {
-    this.setSpans();
-  }
+  // Inialize element height on grid. Its grid height is based on CSS grid spans, so we fetch that value from the DOM and set the number of spans accordingly
+  addListRef = React.createRef();
 
   setSpans = () => {
     const height = this.addListRef.current.clientHeight;
@@ -26,14 +20,16 @@ class AddList extends React.Component {
     this.setState({ spans: spans });
   };
 
-  // Mode toggle
+  componentDidMount() {
+    this.setSpans();
+  }
+
+  // Mode toggle. This component has two modes: "prompt" and "input." The "prompt" mode is the initial mode, basically a button with a label like "add new list." When the user clicks that button, the mode changes to "input," and the user can input and submit a new list and title.
   toggleMode = () => {
     if (this.state.mode === "prompt") {
       this.setState({ mode: "input" });
-      //this.props.setSpansUpdate();
     } else {
       this.setState({ mode: "prompt" });
-      //this.props.setSpansTruncate();
     }
   };
 
@@ -62,6 +58,7 @@ class AddList extends React.Component {
     this.toggleMode();
   };
 
+  // Controlled input and validation to ensure unique list titles
   handleChange = e => {
     //Check if user input matches existing list title
     let inputUnique = true;
