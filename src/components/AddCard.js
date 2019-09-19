@@ -1,36 +1,18 @@
 import React from "react";
 
 class AddCard extends React.Component {
+  // This component has two modes: "prompt" and "input." The "prompt" mode is the initial mode, basically a button with a label like "add new card." When the user clicks that button, the mode changes to "input," and the user can input and submit a new card and title.
   state = {
     mode: "prompt",
     backgroundColor: "",
     cardTitle: ""
   };
 
-  addCardRef = React.createRef();
-  addCardRef2 = React.createRef();
-
-  // Handlers for background change on hover
-
+  // Hover effect (CSS's :hover pseudoselector wasn't creating the desired effect)
   backgroundColor = {
     default: "#c5c9eb",
-    //default: "yellow",
     hover: "#9093ad"
   };
-
-  // Set initial background color, get height for this.promptHeight
-
-  promptHeight = 0;
-  inputHeight = 96;
-
-  componentDidMount() {
-    this.setState({
-      backgroundColor: this.backgroundColor.default
-    });
-
-    this.promptHeight = this.addCardRef.current.clientHeight;
-    console.log("promptHeight is " + this.promptHeight);
-  }
 
   hoverBackground = () => {
     this.setState({ backgroundColor: this.backgroundColor.hover });
@@ -40,8 +22,22 @@ class AddCard extends React.Component {
     this.setState({ backgroundColor: this.backgroundColor.default });
   };
 
-  // Mode and height toggle
+  // Set initial background color, get height for this.promptHeight
+  addCardPromptRef = React.createRef();
+  addCardInputRef = React.createRef();
 
+  promptHeight = 0;
+  inputHeight = 96; // TODO: don't hardcode this value
+
+  componentDidMount() {
+    this.setState({
+      backgroundColor: this.backgroundColor.default
+    });
+
+    this.promptHeight = this.addCardPromptRef.current.clientHeight;
+  }
+
+  // Mode and height toggle
   toggleMode = () => {
     if (this.state.mode === "prompt") {
       this.setState({ mode: "input" });
@@ -51,19 +47,18 @@ class AddCard extends React.Component {
 
     let currentHeight =
       this.state.mode === "input" ? this.promptHeight : this.inputHeight;
-
-    console.log("current height of AddCard is " + currentHeight);
     this.props.setSpansUpdate(currentHeight);
   };
 
-  // Card handler
+  // Card sumbit handler
   onFormSubmit = e => {
     e.preventDefault();
 
+    // Call parent component's onSubmit function if user has entered a card title
     if (this.state.cardTitle) {
       this.props.onSubmit(this.state.cardTitle);
 
-      // Clear input
+      // Clear input, change mode
       this.setState({ cardTitle: "", mode: "prompt" });
       this.props.setSpansUpdateForCard(this.promptHeight);
     } else {
@@ -71,6 +66,7 @@ class AddCard extends React.Component {
     }
   };
 
+  // Controlled input handler
   handleChange = e => {
     this.setState({ cardTitle: e.target.value });
   };
@@ -81,10 +77,10 @@ class AddCard extends React.Component {
         <div
           className="list__addCard list__addCard-prompt"
           style={{ backgroundColor: this.state.backgroundColor }}
-          onMouseEnter={this.hoverBackground}
+          onMouseOver={this.hoverBackground}
           onMouseLeave={this.resetBackground}
           onClick={this.toggleMode}
-          ref={this.addCardRef}
+          ref={this.addCardPromptRef}
         >
           <span className="list__addCard-prompt--plus">+</span>
           <span className="list__addCard-prompt--label">Add new card</span>
@@ -95,7 +91,7 @@ class AddCard extends React.Component {
         <div
           className="list__addCard list__addCard-form"
           style={{ backgroundColor: this.backgroundColor.default }}
-          ref={this.addCardRef2}
+          ref={this.addCardInputRef}
         >
           <form onSubmit={this.onFormSubmit} className="form">
             <div className="form__group">
@@ -106,6 +102,7 @@ class AddCard extends React.Component {
                 onChange={this.handleChange}
                 style={{ borderBottomColor: this.state.borderColor }}
                 placeholder="New card title..."
+                autoFocus
               />
             </div>
             <div className="form__group">

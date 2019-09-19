@@ -119,6 +119,7 @@ class AddList extends React.Component {
                   onChange={this.handleChange}
                   style={{ borderBottomColor: this.state.borderColor }}
                   placeholder="New list title..."
+                  autoFocus
                 />
               </div>
               <div className="form__group">
