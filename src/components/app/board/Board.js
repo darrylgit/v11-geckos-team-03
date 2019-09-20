@@ -1,5 +1,5 @@
 import AddList from "./AddList";
-import List from "./List";
+import List from "./list/List";
 import React from "react";
 
 class Board extends React.Component {
