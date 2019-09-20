@@ -1,6 +1,6 @@
-import Board from "./board/Board";
-
 import React from "react";
+import Board from "../board/Board";
+import Nav from "../navbar/NavBar";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,18 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <nav
-          className="navbar"
-          style={{
-            width: "100%",
-            textAlign: "center",
-            fontSize: "3rem",
-            color: "white",
-            fontFamily: "sans-serif"
-          }}
-        >
-          Navbar Here
-        </nav>
+        <Nav />
         <Board />
       </div>
     );
