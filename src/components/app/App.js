@@ -1,5 +1,5 @@
 import React from "react";
-import Board from "../Board";
+import Board from "../board/Board";
 import Nav from "../navbar/NavBar";
 
 class App extends React.Component {

@@ -26,9 +26,22 @@ body {
 
 .addList {
   border-radius: 0.5rem;
-  background-color: #c5c9eb;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
   height: 100px; }
+  .addList__prompt {
+    background-color: rgba(0, 0, 0, 0.6); }
+    .addList__prompt-button {
+      height: 100%;
+      width: 100%;
+      color: white;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem; }
+      .addList__prompt-button:hover {
+        color: #bbb; }
+  .addList__input {
+    background-color: #c5c9eb; }
   .addList__form {
     width: 100%; }
 
@@ -42,6 +55,8 @@ body {
   color: #333; }
   .card:not(:last-child) {
     margin-bottom: 1rem; }
+  .card:first-child {
+    margin-top: 0.5rem; }
 
 .form {
   padding: 0.5rem; }
@@ -93,13 +108,13 @@ body {
   border-radius: 0.5rem;
   min-height: 120px;
   position: relative;
-  margin-bottom: 1rem; }
+  margin-bottom: 2rem; }
   .list__heading {
     font-size: 2rem;
     width: 90%;
     overflow: hidden;
     font-family: sans-serif;
-    margin: 1rem 1rem 1.5rem 1rem; }
+    padding: 1rem 1rem 1.5rem 1rem; }
   .list__remove {
     position: absolute;
     top: 3px;
@@ -109,7 +124,7 @@ body {
     .list__remove:hover {
       color: red; }
   .list__cards {
-    padding: 0.5rem; }
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem; }
   .list__addCard {
     border-radius: 0 0 0.5rem 0.5rem;
     font-family: sans-serif; }
