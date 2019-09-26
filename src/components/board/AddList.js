@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addList } from "../../actions";
 
 class AddList extends React.Component {
   state = {
@@ -49,7 +51,7 @@ class AddList extends React.Component {
     }
 
     // Submit input
-    this.props.onSubmit(this.state.listTitle);
+    this.props.addList(this.state.listTitle);
 
     // Clear input
     this.setState({ listTitle: "", inputValid: false, borderColor: "#555" });
@@ -134,4 +136,11 @@ class AddList extends React.Component {
   }
 }
 
-export default AddList;
+const mapStateToProps = state => {
+  return { lists: state.lists };
+};
+
+export default connect(
+  mapStateToProps,
+  { addList }
+)(AddList);
