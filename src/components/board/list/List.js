@@ -6,7 +6,6 @@ import { archiveList } from "../../../actions";
 
 class List extends React.Component {
   state = {
-    cards: [],
     spans: 13
   };
 
@@ -51,21 +50,13 @@ class List extends React.Component {
     this.props.archiveList(this.props.listId);
   };
 
-  // Add new card handlers
-  Card = function(title) {
-    this.title = title;
-  };
-
-  addNewCard = title => {
-    let currentCards = [...this.state.cards];
-    currentCards.push(new this.Card(title));
-    this.setState({ cards: currentCards });
-  };
-
+  // Iterate over every card in state, return only the non-archived ones with a listHome corresponding to this list, and then make an array of Card components out of them
   cardsArray = () =>
-    this.state.cards.map(card => {
-      return <Card key={card.title} cardTitle={card.title} />;
-    });
+    this.props.cards
+      .filter(card => card.listHome === this.props.listId && !card.archived)
+      .map(card => (
+        <Card key={card.cardId} cardId={card.cardId} cardTitle={card.title} />
+      ));
 
   render() {
     return (
@@ -84,7 +75,7 @@ class List extends React.Component {
           {this.cardsArray()}
         </div>
         <AddCard
-          onSubmit={this.addNewCard}
+          listHome={this.props.listId}
           setSpansUpdate={this.setSpansUpdate}
           setSpansUpdateForCard={this.setSpansUpdateForCard}
         />
@@ -94,7 +85,7 @@ class List extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { lists: state.lists };
+  return { lists: state.lists, cards: state.cards };
 };
 export default connect(
   mapStateToProps,

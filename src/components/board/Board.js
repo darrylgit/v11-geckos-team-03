@@ -4,29 +4,19 @@ import React from "react";
 import { connect } from "react-redux";
 
 class Board extends React.Component {
-  //state = { lists: [] };
-
-  // List constructor function
-  List = function(title) {
-    this.title = title;
-    this.cards = [];
-  };
-
-  // Function to create List components from state
+  // Iterate over every list in state, return the non-archived ones, and make and array of List components out of them
   listsArray = () =>
-    this.props.lists.map(list => {
-      if (!list.archived) {
-        return (
-          <List key={list.listId} listTitle={list.title} listId={list.listId} />
-        );
-      }
-    });
+    this.props.lists
+      .filter(list => !list.archived)
+      .map(list => (
+        <List key={list.listId} listTitle={list.title} listId={list.listId} />
+      ));
 
   render() {
     return (
       <div className="board">
         {this.listsArray()}
-        <AddList onSubmit={this.onListSubmit}></AddList>
+        <AddList />
       </div>
     );
   }
