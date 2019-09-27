@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
+import * as serviceWorker from "./serviceWorker";
 
 import "./index.css";
 import App from "./components/app/App";
 import reducers from "./reducers";
-import * as serviceWorker from "./serviceWorker";
 
 const store = createStore(reducers);
 

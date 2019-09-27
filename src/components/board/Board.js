@@ -11,43 +11,22 @@ class Board extends React.Component {
     this.title = title;
     this.cards = [];
   };
-  /*
-  // Update state with new list, setting the list title as the argument 'title'
-  onListSubmit = title => {
-    let currentLists = [...this.state.lists];
-    currentLists.push(new this.List(title));
-    this.setState({ lists: currentLists });
-  };
-
-
-  // Iterate over lists, keep only the ones that have a title other than the function argument
-  removeList = title => {
-    let currentLists = [...this.state.lists];
-    currentLists = currentLists.filter(list => list.title !== title);
-    this.setState({ lists: currentLists });
-  };
-  */
 
   // Function to create List components from state
   listsArray = () =>
     this.props.lists.map(list => {
-      return (
-        <List
-          key={list.title}
-          listTitle={list.title}
-          //remove={this.removeList}
-        />
-      );
+      if (!list.archived) {
+        return (
+          <List key={list.listId} listTitle={list.title} listId={list.listId} />
+        );
+      }
     });
 
   render() {
     return (
       <div className="board">
         {this.listsArray()}
-        <AddList
-          onSubmit={this.onListSubmit}
-          currentLists={this.props.lists}
-        ></AddList>
+        <AddList onSubmit={this.onListSubmit}></AddList>
       </div>
     );
   }

@@ -6,7 +6,6 @@ class AddList extends React.Component {
   state = {
     mode: "prompt",
     listTitle: "",
-    inputValid: false,
     borderColor: "#555",
     spans: 0
   };
@@ -43,15 +42,21 @@ class AddList extends React.Component {
     if (!this.state.listTitle) {
       alert("Please enter a title.");
       return false;
-    } else if (!this.state.inputValid) {
-      alert(
-        `A list with the title "${this.state.listTitle}" already exists. Please try a different title.`
-      );
-      return false;
     }
 
+    // Generate a unique key and listId in the event of duplicate list titles
+    const generateListId = inputId => {
+      if (!this.props.lists.find(list => list.listId === inputId)) {
+        return inputId;
+      } else {
+        inputId = `${inputId}-duplicate`;
+        return generateListId(inputId);
+      }
+    };
+    let listId = generateListId(this.state.listTitle);
+
     // Submit input
-    this.props.addList(this.state.listTitle);
+    this.props.addList(this.state.listTitle, listId);
 
     // Clear input
     this.setState({ listTitle: "", inputValid: false, borderColor: "#555" });
@@ -62,33 +67,13 @@ class AddList extends React.Component {
 
   // Controlled input and validation to ensure unique list titles
   handleChange = e => {
-    //Check if user input matches existing list title
-    let inputUnique = true;
-    this.props.currentLists.forEach(list => {
-      if (e.target.value === list.title) {
-        inputUnique = false;
-      }
+    this.setState({
+      listTitle: e.target.value
     });
 
-    // After check, update state
-    inputUnique
-      ? this.setState({
-          listTitle: e.target.value,
-          inputValid: true,
-          borderColor: "#4fa644"
-        })
-      : this.setState({
-          listTitle: e.target.value,
-          inputValid: false,
-          borderColor: "red"
-        });
-
-    // Reset border color if input is empty
-    if (!e.target.value) {
-      this.setState({
-        borderColor: "#555"
-      });
-    }
+    e.target.value
+      ? this.setState({ borderColor: "#4fa644" })
+      : this.setState({ borderColor: "red" });
   };
 
   render() {

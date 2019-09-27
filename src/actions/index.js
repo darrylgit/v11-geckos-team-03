@@ -1,13 +1,16 @@
-export const addList = title => {
+export const addList = (title, listId) => {
   return {
     type: "ADD_LIST",
-    payload: title
+    payload: {
+      title: title,
+      listId: listId
+    }
   };
 };
 
-export const archiveList = title => {
+export const archiveList = listId => {
   return {
     type: "ARCHIVE_LIST",
-    payload: title
+    payload: listId
   };
 };

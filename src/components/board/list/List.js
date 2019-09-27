@@ -1,6 +1,8 @@
 import AddCard from "./AddCard";
 import Card from "./Card";
 import React from "react";
+import { connect } from "react-redux";
+import { archiveList } from "../../../actions";
 
 class List extends React.Component {
   state = {
@@ -45,8 +47,8 @@ class List extends React.Component {
   };
 
   // Event handler for when user clicks the remove button
-  removeList = () => {
-    this.props.remove(this.props.listTitle);
+  archiveList = () => {
+    this.props.archiveList(this.props.listId);
   };
 
   // Add new card handlers
@@ -72,7 +74,7 @@ class List extends React.Component {
         ref={this.listRef}
         style={{ gridRowEnd: `span ${this.state.spans}` }}
       >
-        <div className="list__remove" onClick={this.removeList}>
+        <div className="list__remove" onClick={this.archiveList}>
           &times;
         </div>
         <h2 className="list__heading" ref={this.headingRef}>
@@ -91,4 +93,10 @@ class List extends React.Component {
   }
 }
 
-export default List;
+const mapStateToProps = state => {
+  return { lists: state.lists };
+};
+export default connect(
+  mapStateToProps,
+  { archiveList }
+)(List);
