@@ -1,53 +1,29 @@
 import AddList from "./AddList";
 import List from "./list/List";
 import React from "react";
+import { connect } from "react-redux";
 
 class Board extends React.Component {
-  state = { lists: [] };
-
-  // List constructor function
-  List = function(title) {
-    this.title = title;
-    this.cards = [];
-  };
-
-  // Update state with new list, setting the list title as the argument 'title'
-  onListSubmit = title => {
-    let currentLists = [...this.state.lists];
-    currentLists.push(new this.List(title));
-    this.setState({ lists: currentLists });
-  };
-
-  // Iterate over lists, keep only the ones that have a title other than the function argument
-  removeList = title => {
-    let currentLists = [...this.state.lists];
-    currentLists = currentLists.filter(list => list.title !== title);
-    this.setState({ lists: currentLists });
-  };
-
-  // Function to create List components from state
+  // Iterate over every list in state, return the non-archived ones, and make and array of List components out of them
   listsArray = () =>
-    this.state.lists.map(list => {
-      return (
-        <List
-          key={list.title}
-          listTitle={list.title}
-          remove={this.removeList}
-        />
-      );
-    });
+    this.props.lists
+      .filter(list => !list.archived)
+      .map(list => (
+        <List key={list.listId} listTitle={list.title} listId={list.listId} />
+      ));
 
   render() {
     return (
       <div className="board">
         {this.listsArray()}
-        <AddList
-          onSubmit={this.onListSubmit}
-          currentLists={this.state.lists}
-        ></AddList>
+        <AddList />
       </div>
     );
   }
 }
 
-export default Board;
+const mapStateToProps = state => {
+  return { lists: state.lists };
+};
+
+export default connect(mapStateToProps)(Board);

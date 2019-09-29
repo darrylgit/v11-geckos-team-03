@@ -1,11 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addCard } from "../../../actions";
 
 class AddCard extends React.Component {
   // This component has two modes: "prompt" and "input." The "prompt" mode is the initial mode, basically a button with a label like "add new card." When the user clicks that button, the mode changes to "input," and the user can input and submit a new card and title.
   state = {
     mode: "prompt",
     backgroundColor: "",
-    cardTitle: ""
+    cardTitle: "",
+    borderColor: "#555"
   };
 
   // Hover effect (CSS's :hover pseudoselector wasn't creating the desired effect)
@@ -54,12 +57,29 @@ class AddCard extends React.Component {
   onFormSubmit = e => {
     e.preventDefault();
 
-    // Call parent component's onSubmit function if user has entered a card title
+    // Validate input
+    if (!this.state.cardTitle) {
+      alert("Please enter a card title.");
+      return false;
+    }
+
+    // Generate a unique key and cardId in the event of duplicate card titles
+    const generateCardId = inputId => {
+      if (!this.props.cards.find(card => card.cardId === inputId)) {
+        return inputId;
+      } else {
+        inputId = `${inputId}-duplicate`;
+        return generateCardId(inputId);
+      }
+    };
+    let cardId = generateCardId(this.state.cardTitle);
+
+    // Call addCard redux action if user has entered a card title
     if (this.state.cardTitle) {
-      this.props.onSubmit(this.state.cardTitle);
+      this.props.addCard(this.state.cardTitle, cardId, this.props.listHome);
 
       // Clear input, change mode
-      this.setState({ cardTitle: "", mode: "prompt" });
+      this.setState({ cardTitle: "", mode: "prompt", borderColor: "#555" });
       this.props.setSpansUpdateForCard(this.promptHeight);
     } else {
       return false;
@@ -69,6 +89,10 @@ class AddCard extends React.Component {
   // Controlled input handler
   handleChange = e => {
     this.setState({ cardTitle: e.target.value });
+
+    e.target.value
+      ? this.setState({ borderColor: "#4fa644" })
+      : this.setState({ borderColor: "red" });
   };
 
   render() {
@@ -118,4 +142,11 @@ class AddCard extends React.Component {
   }
 }
 
-export default AddCard;
+const mapStateToProps = state => {
+  return { cards: state.cards };
+};
+
+export default connect(
+  mapStateToProps,
+  { addCard }
+)(AddCard);
