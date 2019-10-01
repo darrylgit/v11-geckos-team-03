@@ -1,6 +1,8 @@
 import AddList from "./AddList";
 import List from "./list/List";
 import React from "react";
+import { DndProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
 import { connect } from "react-redux";
 
 class Board extends React.Component {
@@ -14,10 +16,12 @@ class Board extends React.Component {
 
   render() {
     return (
-      <div className="board">
-        {this.listsArray()}
-        <AddList />
-      </div>
+      <DndProvider backend={HTML5Backend}>
+        <div className="board">
+          {this.listsArray()}
+          <AddList />
+        </div>
+      </DndProvider>
     );
   }
 }
