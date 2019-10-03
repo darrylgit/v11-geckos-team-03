@@ -25,3 +25,13 @@ export const addCard = (title, cardId, listHome) => {
     }
   };
 };
+
+export const moveCard = (cardId, newListHome) => {
+  return {
+    type: "MOVE_CARD",
+    payload: {
+      cardId,
+      newListHome
+    }
+  };
+};

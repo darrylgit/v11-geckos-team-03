@@ -10,6 +10,14 @@ export default (state = [], action) => {
           archived: false
         }
       ];
+    case "MOVE_CARD":
+      let currentCards = [...state];
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload.cardId) {
+          card.listHome = action.payload.newListHome;
+        }
+      });
+      return currentCards;
     default:
       return state;
   }
