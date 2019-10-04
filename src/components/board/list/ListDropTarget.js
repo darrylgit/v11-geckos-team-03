@@ -1,27 +1,22 @@
 import React from "react";
-import List from "./List";
 import { ItemTypes } from "../Constants";
 import { useDrop } from "react-dnd";
 
-function ListDropTarget(props) {
+function ListDropTarget({ style, listId, children }) {
+  // Drop source hook
   const [, drop] = useDrop({
     accept: ItemTypes.CARD,
-    drop: () => ({ listId: props.listId })
+    drop: () => ({ listId: listId })
+    /*
+    collect: monitor => ({
+      canDrop: monitor.canDrop()
+    })
+    */
   });
 
-  let spans = 13;
-
-  const setSpans = function(spans) {
-    return spans;
-  };
-
   return (
-    <div ref={drop} class="drop-target" style={{ gridRowEnd: `span ${spans}` }}>
-      <List
-        listId={props.listId}
-        listTitle={props.listTitle}
-        setDropTargetSpans={setSpans}
-      ></List>
+    <div ref={drop} className="drop-target" style={{ ...style }}>
+      {children}
     </div>
   );
 }

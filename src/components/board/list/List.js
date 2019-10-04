@@ -3,7 +3,7 @@ import Card from "./Card";
 import React from "react";
 import { connect } from "react-redux";
 import { archiveList } from "../../../actions";
-import InternalDrop from "./InternalDrop";
+import ListDropTarget from "./ListDropTarget";
 import memoize from "memoize-one";
 
 class List extends React.Component {
@@ -30,7 +30,6 @@ class List extends React.Component {
     if (addCardHeight !== this.state.addCardHeight) {
       this.setState({ addCardHeight: addCardHeight });
     }
-    console.log(this.state);
   };
 
   setSpansAddCard = addCardHeight => {
@@ -38,10 +37,6 @@ class List extends React.Component {
     let cardsHeight;
     const cardsDivHeightWhenEmpty = 10; // TODO: don't hardcode this value
     const heightOfOneCard = 45; // TODO: don't hardcode this value
-    /*
-    cardsHeight = this.props.cards.length * heightOfOneCard + 5;
-    console.log("cardsHeight is " + cardsHeight);
-    */
 
     if (this.cardsRef.current.clientHeight === cardsDivHeightWhenEmpty) {
       cardsHeight = heightOfOneCard;
@@ -57,13 +52,17 @@ class List extends React.Component {
     if (addCardHeight !== this.state.addCardHeight) {
       this.setState({ addCardHeight: addCardHeight });
     }
-    console.log(this.state);
   };
 
+  // Function to handle list height change, memoized to respond to drag-and-drop events (i.e. to cards prop changes)
   setSpansDnd = memoize((cardsArray, addCardHeight) => {
     const heightOfOneCard = 45; // TODO: don't hardcode this value
-    const height = 48 + cardsArray.length * heightOfOneCard + 5 + addCardHeight;
+    const headingHeight = 48; // TODO: don't hardcode this value
+
+    const height =
+      headingHeight + cardsArray.length * heightOfOneCard + 5 + addCardHeight;
     const spans = Math.ceil(height / 10) + 1;
+
     this.setState({ spans: spans, height: height });
   });
 
@@ -79,18 +78,16 @@ class List extends React.Component {
     ));
 
   render() {
+    // Memoized function: only gets called when value of one of the arguments changes (essentially, when a card gets added to or removed from props)
     this.setSpansDnd(this.props.cards, this.state.addCardHeight);
 
     return (
-      <InternalDrop
+      <ListDropTarget
+        // Style ensures drop target is the same size as the list
         style={{
-          //position: "absolute",
-          //top: 0,
-          //left: 0,
           height: `${this.state.height}px`,
           width: "100%",
           gridRowEnd: `span ${this.state.spans}`
-          //zIndex: -1
         }}
         listId={this.props.listId}
       >
@@ -114,13 +111,13 @@ class List extends React.Component {
             setSpansUpdateForCard={this.setSpansAddCard}
           />
         </div>
-      </InternalDrop>
+      </ListDropTarget>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  //Iterate over every card in state, return only the non - archived ones with a listHome corresponding to this list
+  //Iterate over every card in state, return only the non-archived ones with a listHome corresponding to this list
   const { listId } = ownProps;
   const cards = state.cards.filter(
     card => card.listHome === listId && !card.archived

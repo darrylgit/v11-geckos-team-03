@@ -4,36 +4,8 @@ import { useDrag } from "react-dnd";
 import { connect } from "react-redux";
 import { moveCard } from "../../../actions";
 
-/*
-class Card extends React.Component {
-  
-
-  render() {
-    const [{ isDragging }, drag] = useDrag({
-    item: { type: ItemTypes.CARD },
-    collect: monitor => ({
-      isDragging: !!monitor.isDragging()
-    })
-  });
-
-  return (
-    <div
-      ref={drag}
-      className="card"
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        cursor: "move"
-      }}
-    >
-      {this.props.cardTitle}
-    </div>
-  );
-    
-  }
-}
-*/
-
 function Card(props) {
+  // Drag source hook
   const [{ isDragging }, drag] = useDrag({
     item: { type: ItemTypes.CARD },
     end: (item, monitor) => {

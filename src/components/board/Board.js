@@ -1,5 +1,4 @@
 import AddList from "./AddList";
-//import ListDropTarget from "./list/ListDropTarget";
 import List from "./list/List";
 import React from "react";
 import { DndProvider } from "react-dnd";
