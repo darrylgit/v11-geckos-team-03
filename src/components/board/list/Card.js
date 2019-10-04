@@ -3,7 +3,6 @@ import { ItemTypes } from "../Constants";
 import { useDrag } from "react-dnd";
 import { connect } from "react-redux";
 import { moveCard } from "../../../actions";
-import { statement } from "@babel/template";
 
 /*
 class Card extends React.Component {
@@ -54,6 +53,7 @@ function Card(props) {
       className="card"
       style={{
         opacity: isDragging ? 0.5 : 1,
+        zIndex: isDragging ? 3 : 3,
         cursor: "move"
       }}
     >

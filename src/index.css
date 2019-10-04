@@ -1,3 +1,4 @@
+/* line 1, src/sass/base/_base.scss */
 *,
 *::after,
 *::before {
@@ -5,18 +6,22 @@
   padding: 0;
   box-sizing: inherit; }
 
+/* line 9, src/sass/base/_base.scss */
 html {
   font-size: 62.5%; }
 
+/* line 14, src/sass/base/_base.scss */
 body {
   box-sizing: border-box;
   height: 100vh;
   background-color: blue; }
 
+/* line 1, src/sass/base/_typography.scss */
 body {
   color: #333;
   font-family: sans-serif; }
 
+/* line 1, src/components/board/_board.scss */
 .board {
   padding: 1rem;
   display: grid;
@@ -24,12 +29,15 @@ body {
   grid-gap: 0 1rem;
   grid-auto-rows: 1rem; }
 
+/* line 10, src/components/board/_board.scss */
 .addList {
   border-radius: 0.5rem;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
   height: 100px; }
+  /* line 15, src/components/board/_board.scss */
   .addList__prompt {
     background-color: rgba(0, 0, 0, 0.6); }
+    /* line 18, src/components/board/_board.scss */
     .addList__prompt-button {
       height: 100%;
       width: 100%;
@@ -38,13 +46,17 @@ body {
       border: none;
       cursor: pointer;
       font-size: 2rem; }
+      /* line 27, src/components/board/_board.scss */
       .addList__prompt-button:hover {
         color: #bbb; }
+  /* line 33, src/components/board/_board.scss */
   .addList__input {
     background-color: #c5c9eb; }
+  /* line 37, src/components/board/_board.scss */
   .addList__form {
     width: 100%; }
 
+/* line 1, src/components/board/list/_card.scss */
 .card {
   display: block;
   background-color: #fff;
@@ -53,15 +65,20 @@ body {
   padding: 0 1rem;
   line-height: 3.5rem;
   color: #333; }
+  /* line 2, src/components/board/list/_card.scss */
   .card:not(:last-child) {
     margin-bottom: 1rem; }
+  /* line 6, src/components/board/list/_card.scss */
   .card:first-child {
     margin-top: 0.5rem; }
 
+/* line 1, src/sass/components/_form.scss */
 .form {
   padding: 0.5rem; }
+  /* line 4, src/sass/components/_form.scss */
   .form__group:not(:last-child) {
     margin-bottom: 0.5rem; }
+  /* line 8, src/sass/components/_form.scss */
   .form__input {
     display: block;
     width: 100%;
@@ -71,10 +88,12 @@ body {
     border-radius: 0.5rem;
     border: none;
     color: #333; }
+    /* line 18, src/sass/components/_form.scss */
     .form__input--validation {
       border-bottom-style: solid;
       border-bottom-width: 3px;
       border-bottom-color: #555; }
+  /* line 25, src/sass/components/_form.scss */
   .form__submit {
     display: inline-block;
     padding: 1rem 1.5rem;
@@ -85,11 +104,14 @@ body {
     color: white;
     cursor: pointer;
     transition: all 0.2s; }
+    /* line 36, src/sass/components/_form.scss */
     .form__submit:focus, .form__submit:active {
       outline: none;
       transform: translateY(2px); }
+    /* line 42, src/sass/components/_form.scss */
     .form__submit:hover {
       background-color: #387430; }
+  /* line 47, src/sass/components/_form.scss */
   .form__cancel {
     display: inline-block;
     margin-left: 1rem;
@@ -99,35 +121,44 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer; }
+    /* line 57, src/sass/components/_form.scss */
     .form__cancel:hover {
       color: red; }
 
+/* line 1, src/components/board/list/_list.scss */
 .list {
   width: 100%;
   background-color: #c5c9eb;
   border-radius: 0.5rem;
   min-height: 120px;
   position: relative;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  z-index: 0; }
+  /* line 10, src/components/board/list/_list.scss */
   .list__heading {
     font-size: 2rem;
     width: 90%;
     overflow: hidden;
     font-family: sans-serif;
     padding: 1rem 1rem 1.5rem 1rem; }
+  /* line 18, src/components/board/list/_list.scss */
   .list__remove {
     position: absolute;
     top: 3px;
     right: 1rem;
     cursor: pointer;
     font-size: 3rem; }
+    /* line 25, src/components/board/list/_list.scss */
     .list__remove:hover {
       color: red; }
+  /* line 30, src/components/board/list/_list.scss */
   .list__cards {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem; }
+  /* line 34, src/components/board/list/_list.scss */
   .list__addCard {
     border-radius: 0 0 0.5rem 0.5rem;
     font-family: sans-serif; }
+    /* line 38, src/components/board/list/_list.scss */
     .list__addCard-prompt {
       padding: 1rem 1rem 1.2rem 1rem;
       overflow: hidden;
@@ -137,16 +168,21 @@ body {
       -webkit-user-select: none;
       user-select: none;
       cursor: pointer; }
+      /* line 50, src/components/board/list/_list.scss */
       .list__addCard-prompt:link, .list__addCard-prompt:visited {
         color: inherit;
         text-decoration: none; }
+      /* line 56, src/components/board/list/_list.scss */
       .list__addCard-prompt--plus {
         font-size: 4rem;
         margin-right: 1rem; }
+      /* line 61, src/components/board/list/_list.scss */
       .list__addCard-prompt--label {
         font-size: 2rem; }
+    /* line 66, src/components/board/list/_list.scss */
     .list__addCard-form {
       width: 100%; }
+  /* line 71, src/components/board/list/_list.scss */
   .list:after {
     content: "";
     position: absolute;
@@ -157,9 +193,11 @@ body {
     z-index: -1;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3); }
 
+/* line 1, src/components/navbar/_navbar.scss */
 .navbar {
   display: grid;
   grid-template-areas: "header header header" "title . menu"; }
+  /* line 7, src/components/navbar/_navbar.scss */
   .navbar__logo {
     width: 100vw;
     padding: 5px 0;
@@ -168,6 +206,7 @@ body {
     font-size: 1.5em;
     color: white;
     text-align: center; }
+  /* line 17, src/components/navbar/_navbar.scss */
   .navbar__input {
     margin-left: 10px;
     padding: 5px 0;
@@ -179,14 +218,18 @@ body {
     font-weight: 700;
     color: white;
     text-align: center; }
+  /* line 30, src/components/navbar/_navbar.scss */
   .navbar__input--infocus {
     background-color: white;
     color: #333; }
+  /* line 35, src/components/navbar/_navbar.scss */
   .navbar__input--hover {
     background-color: #00a2ff; }
+  /* line 39, src/components/navbar/_navbar.scss */
   .navbar__menu {
     grid-area: menu;
     margin-right: 30px;
     color: white; }
+  /* line 45, src/components/navbar/_navbar.scss */
   .navbar__menu h1 {
     font-weight: 100; }

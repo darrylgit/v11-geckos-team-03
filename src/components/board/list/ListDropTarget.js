@@ -8,9 +8,20 @@ function ListDropTarget(props) {
     accept: ItemTypes.CARD,
     drop: () => ({ listId: props.listId })
   });
+
+  let spans = 13;
+
+  const setSpans = function(spans) {
+    return spans;
+  };
+
   return (
-    <div ref={drop}>
-      <List listId={props.listId} listTitle={props.listTitle} />
+    <div ref={drop} class="drop-target" style={{ gridRowEnd: `span ${spans}` }}>
+      <List
+        listId={props.listId}
+        listTitle={props.listTitle}
+        setDropTargetSpans={setSpans}
+      ></List>
     </div>
   );
 }

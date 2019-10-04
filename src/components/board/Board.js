@@ -1,5 +1,6 @@
 import AddList from "./AddList";
-import ListDropTarget from "./list/ListDropTarget";
+//import ListDropTarget from "./list/ListDropTarget";
+import List from "./list/List";
 import React from "react";
 import { DndProvider } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
@@ -11,10 +12,11 @@ class Board extends React.Component {
     this.props.lists
       .filter(list => !list.archived)
       .map(list => (
-        <ListDropTarget
+        <List
           key={list.listId}
           listTitle={list.title}
           listId={list.listId}
+          cards={[]}
         />
       ));
 
