@@ -6,9 +6,9 @@
 @import "base/base";
 @import "base/typography";
 
-@import "../src/components/board/board";
-@import "../src/components/board/list/card";
+@import "../components/board/board";
+@import "../components/board/list/card";
 @import "components/form";
-@import "../src/components/board/list/list";
-@import "../src/components/navbar/navbar";
+@import "../components/board/list/list";
+@import "../components/navbar/navbar";
 @import "components/popup";

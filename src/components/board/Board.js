@@ -1,6 +1,8 @@
 import AddList from "./AddList";
 import List from "./list/List";
 import React from "react";
+import { DndProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
 import { connect } from "react-redux";
 
 class Board extends React.Component {
@@ -9,15 +11,22 @@ class Board extends React.Component {
     this.props.lists
       .filter(list => !list.archived)
       .map(list => (
-        <List key={list.listId} listTitle={list.title} listId={list.listId} />
+        <List
+          key={list.listId}
+          listTitle={list.title}
+          listId={list.listId}
+          cards={[]}
+        />
       ));
 
   render() {
     return (
-      <div className="board">
-        {this.listsArray()}
-        <AddList />
-      </div>
+      <DndProvider backend={HTML5Backend}>
+        <div className="board">
+          {this.listsArray()}
+          <AddList />
+        </div>
+      </DndProvider>
     );
   }
 }
