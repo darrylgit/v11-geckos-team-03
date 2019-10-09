@@ -1,4 +1,5 @@
 export default (state = [], action) => {
+  let currentCards = [...state];
   switch (action.type) {
     case "ADD_CARD":
       return [
@@ -7,14 +8,22 @@ export default (state = [], action) => {
           title: action.payload.title,
           cardId: action.payload.cardId,
           listHome: action.payload.listHome,
-          archived: false
+          archived: false,
+          checklist: [],
+          description: ""
         }
       ];
     case "MOVE_CARD":
-      let currentCards = [...state];
       currentCards.forEach(card => {
         if (card.cardId === action.payload.cardId) {
           card.listHome = action.payload.newListHome;
+        }
+      });
+      return currentCards;
+    case "UPDATE_CARD_DESCRIPTION":
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload.cardId) {
+          card.description = action.payload.descriptionInput;
         }
       });
       return currentCards;

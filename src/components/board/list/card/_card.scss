@@ -7,6 +7,8 @@
     margin-top: 0.5rem;
   }
 
+  z-index: 10;
+
   &__preview {
     display: block;
     background-color: #fff;
@@ -18,15 +20,14 @@
     text-decoration: none;
   }
 
-  &__popup {
+  &__popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 10;
-    //color: white;
+    z-index: 9999;
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s;
@@ -34,33 +35,6 @@
     &:target {
       visibility: visible;
       opacity: 1;
-    }
-
-    .popup {
-      width: 60%;
-      height: 40rem;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: 10rem;
-      background-color: $popup-background;
-      border-radius: 0.5rem;
-
-      &__heading {
-        text-align: center;
-
-        &--main {
-          font-size: 3rem;
-        }
-
-        &--sub {
-          font-size: 1.5rem;
-
-          .list-title {
-            text-decoration: underline;
-          }
-        }
-      }
     }
   }
 }

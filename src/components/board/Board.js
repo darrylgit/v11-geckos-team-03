@@ -22,7 +22,7 @@ class Board extends React.Component {
   render() {
     return (
       <DndProvider backend={HTML5Backend}>
-        <div className="board">
+        <div className="board" id="board">
           {this.listsArray()}
           <AddList />
         </div>

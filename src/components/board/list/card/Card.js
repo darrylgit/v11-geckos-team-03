@@ -3,7 +3,7 @@ import { ItemTypes } from "../../Constants";
 import { useDrag } from "react-dnd";
 import { connect } from "react-redux";
 import { moveCard } from "../../../../actions";
-import CardPopup from "./CardPopup";
+//import CardPopup from "./CardPopup";
 
 function Card(props) {
   // Drag source hook
@@ -36,11 +36,6 @@ function Card(props) {
       >
         {props.cardTitle}
       </a>
-      <CardPopup
-        cardId={props.cardId}
-        cardTitle={props.cardTitle}
-        inList={props.inList}
-      />
     </div>
   );
 }
@@ -53,3 +48,11 @@ export default connect(
   mapStateToProps,
   { moveCard }
 )(Card);
+
+/*
+<CardPopup
+  cardId={props.cardId}
+  cardTitle={props.cardTitle}
+  inList={props.inList}
+/>
+*/

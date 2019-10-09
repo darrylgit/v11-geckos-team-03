@@ -56,63 +56,123 @@ body {
   .addList__form {
     width: 100%; }
 
-/* line 2, src/components/board/list/card/_card.scss */
-.card:not(:last-child) {
-  margin-bottom: 1rem; }
+/* line 1, src/components/board/list/card/_card.scss */
+.card {
+  z-index: 10; }
+  /* line 2, src/components/board/list/card/_card.scss */
+  .card:not(:last-child) {
+    margin-bottom: 1rem; }
+  /* line 6, src/components/board/list/card/_card.scss */
+  .card:first-child {
+    margin-top: 0.5rem; }
+  /* line 12, src/components/board/list/card/_card.scss */
+  .card__preview {
+    display: block;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    padding: 0 1rem;
+    line-height: 3.5rem;
+    color: #333;
+    text-decoration: none; }
+  /* line 23, src/components/board/list/card/_card.scss */
+  .card__popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s; }
+    /* line 35, src/components/board/list/card/_card.scss */
+    .card__popup-overlay:target {
+      visibility: visible;
+      opacity: 1; }
 
-/* line 6, src/components/board/list/card/_card.scss */
-.card:first-child {
-  margin-top: 0.5rem; }
-
-/* line 10, src/components/board/list/card/_card.scss */
-.card__preview {
-  display: block;
-  background-color: #fff;
+/* line 1, src/components/board/list/card/_popup.scss */
+.popup {
+  width: 50%;
+  height: 40rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10rem;
+  background-color: #c5c9eb;
   border-radius: 0.5rem;
-  font-size: 2rem;
-  padding: 0 1rem;
-  line-height: 3.5rem;
-  color: #333;
-  text-decoration: none; }
-
-/* line 21, src/components/board/list/card/_card.scss */
-.card__popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 10;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s; }
-  /* line 34, src/components/board/list/card/_card.scss */
-  .card__popup:target {
-    visibility: visible;
-    opacity: 1; }
-  /* line 39, src/components/board/list/card/_card.scss */
-  .card__popup .popup {
-    width: 60%;
-    height: 40rem;
+  padding: 1rem; }
+  /* line 12, src/components/board/list/card/_popup.scss */
+  .popup__heading {
+    text-align: center; }
+    /* line 15, src/components/board/list/card/_popup.scss */
+    .popup__heading--main {
+      font-size: 3rem; }
+    /* line 19, src/components/board/list/card/_popup.scss */
+    .popup__heading--sub {
+      font-size: 1.5rem; }
+      /* line 22, src/components/board/list/card/_popup.scss */
+      .popup__heading--sub .list-title {
+        text-decoration: underline; }
+  /* line 28, src/components/board/list/card/_popup.scss */
+  .popup__close {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10rem;
-    background-color: #c5c9eb;
-    border-radius: 0.5rem; }
-    /* line 49, src/components/board/list/card/_card.scss */
-    .card__popup .popup__heading {
-      text-align: center; }
-      /* line 52, src/components/board/list/card/_card.scss */
-      .card__popup .popup__heading--main {
-        font-size: 3rem; }
-      /* line 56, src/components/board/list/card/_card.scss */
-      .card__popup .popup__heading--sub {
-        font-size: 1.5rem; }
-        /* line 59, src/components/board/list/card/_card.scss */
-        .card__popup .popup__heading--sub .list-title {
-          text-decoration: underline; }
+    top: 3px;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 3rem;
+    text-decoration: none;
+    color: #333; }
+    /* line 37, src/components/board/list/card/_popup.scss */
+    .popup__close:hover {
+      color: red; }
+  /* line 42, src/components/board/list/card/_popup.scss */
+  .popup__widget-heading {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    margin-right: 1rem; }
+  /* line 49, src/components/board/list/card/_popup.scss */
+  .popup__main {
+    width: 100%; }
+    /* line 52, src/components/board/list/card/_popup.scss */
+    .popup__main--left {
+      float: left;
+      width: 75%; }
+    /* line 57, src/components/board/list/card/_popup.scss */
+    .popup__main--right {
+      float: right;
+      width: 25%; }
+    /* line 62, src/components/board/list/card/_popup.scss */
+    .popup__main .description {
+      width: 100%;
+      margin-bottom: 1rem;
+      text-align: left; }
+      /* line 67, src/components/board/list/card/_popup.scss */
+      .popup__main .description__prompt {
+        display: block;
+        background-color: #c5c9eb;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 5px;
+        height: 3rem; }
+        /* line 75, src/components/board/list/card/_popup.scss */
+        .popup__main .description__prompt:hover {
+          background-color: #9093ad; }
+      /* line 79, src/components/board/list/card/_popup.scss */
+      .popup__main .description__textarea {
+        display: block;
+        background-color: white;
+        width: 100%;
+        height: 4rem;
+        padding: 0.5rem;
+        border-radius: 5px; }
+      /* line 88, src/components/board/list/card/_popup.scss */
+      .popup__main .description__display {
+        display: block;
+        font-size: 1.8rem; }
 
 /* line 1, src/sass/components/_form.scss */
 .form {
@@ -136,7 +196,7 @@ body {
       border-bottom-width: 3px;
       border-bottom-color: #555; }
   /* line 25, src/sass/components/_form.scss */
-  .form__submit {
+  .form__submit, .form__edit {
     display: inline-block;
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
@@ -146,14 +206,14 @@ body {
     color: white;
     cursor: pointer;
     transition: all 0.2s; }
-    /* line 36, src/sass/components/_form.scss */
-    .form__submit:focus, .form__submit:active {
+    /* line 37, src/sass/components/_form.scss */
+    .form__submit:focus, .form__submit:active, .form__edit:focus, .form__edit:active {
       outline: none;
       transform: translateY(2px); }
-    /* line 42, src/sass/components/_form.scss */
-    .form__submit:hover {
+    /* line 43, src/sass/components/_form.scss */
+    .form__submit:hover, .form__edit:hover {
       background-color: #387430; }
-  /* line 47, src/sass/components/_form.scss */
+  /* line 48, src/sass/components/_form.scss */
   .form__cancel {
     display: inline-block;
     margin-left: 1rem;
@@ -163,7 +223,7 @@ body {
     background-color: transparent;
     border: none;
     cursor: pointer; }
-    /* line 57, src/sass/components/_form.scss */
+    /* line 58, src/sass/components/_form.scss */
     .form__cancel:hover {
       color: red; }
 

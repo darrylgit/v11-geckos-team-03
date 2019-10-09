@@ -1,5 +1,6 @@
 import AddCard from "./AddCard";
 import Card from "./card/Card";
+import CardPopup from "./card/CardPopup";
 import React from "react";
 import { connect } from "react-redux";
 import { archiveList } from "../../../actions";
@@ -82,6 +83,17 @@ class List extends React.Component {
       />
     ));
 
+  // Make array of CardPopup components from props
+  cardPopupsArray = () =>
+    this.props.cards.map(card => (
+      <CardPopup
+        key={card.cardId}
+        cardId={card.cardId}
+        cardTitle={card.title}
+        inList={this.props.listTitle}
+      />
+    ));
+
   render() {
     // Memoized function: only gets called when value of one of the arguments changes (essentially, when a card gets added to or removed from props)
     this.setSpansDnd(this.props.cards, this.state.addCardHeight);
@@ -116,6 +128,7 @@ class List extends React.Component {
             setSpansUpdateForCard={this.setSpansAddCard}
           />
         </div>
+        <div className="card-popups">{this.cardPopupsArray()}</div>
       </ListDropTarget>
     );
   }

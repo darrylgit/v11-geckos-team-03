@@ -35,3 +35,13 @@ export const moveCard = (cardId, newListHome) => {
     }
   };
 };
+
+export const updateCardDescription = (cardId, descriptionInput) => {
+  return {
+    type: "UPDATE_CARD_DESCRIPTION",
+    payload: {
+      cardId,
+      descriptionInput
+    }
+  };
+};
