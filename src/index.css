@@ -56,21 +56,63 @@ body {
   .addList__form {
     width: 100%; }
 
-/* line 1, src/components/board/list/_card.scss */
-.card {
+/* line 2, src/components/board/list/card/_card.scss */
+.card:not(:last-child) {
+  margin-bottom: 1rem; }
+
+/* line 6, src/components/board/list/card/_card.scss */
+.card:first-child {
+  margin-top: 0.5rem; }
+
+/* line 10, src/components/board/list/card/_card.scss */
+.card__preview {
   display: block;
   background-color: #fff;
   border-radius: 0.5rem;
   font-size: 2rem;
   padding: 0 1rem;
   line-height: 3.5rem;
-  color: #333; }
-  /* line 2, src/components/board/list/_card.scss */
-  .card:not(:last-child) {
-    margin-bottom: 1rem; }
-  /* line 6, src/components/board/list/_card.scss */
-  .card:first-child {
-    margin-top: 0.5rem; }
+  color: #333;
+  text-decoration: none; }
+
+/* line 21, src/components/board/list/card/_card.scss */
+.card__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s; }
+  /* line 34, src/components/board/list/card/_card.scss */
+  .card__popup:target {
+    visibility: visible;
+    opacity: 1; }
+  /* line 39, src/components/board/list/card/_card.scss */
+  .card__popup .popup {
+    width: 60%;
+    height: 40rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10rem;
+    background-color: #c5c9eb;
+    border-radius: 0.5rem; }
+    /* line 49, src/components/board/list/card/_card.scss */
+    .card__popup .popup__heading {
+      text-align: center; }
+      /* line 52, src/components/board/list/card/_card.scss */
+      .card__popup .popup__heading--main {
+        font-size: 3rem; }
+      /* line 56, src/components/board/list/card/_card.scss */
+      .card__popup .popup__heading--sub {
+        font-size: 1.5rem; }
+        /* line 59, src/components/board/list/card/_card.scss */
+        .card__popup .popup__heading--sub .list-title {
+          text-decoration: underline; }
 
 /* line 1, src/sass/components/_form.scss */
 .form {

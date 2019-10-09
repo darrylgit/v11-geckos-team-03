@@ -1,0 +1,66 @@
+.card {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &:first-child {
+    margin-top: 0.5rem;
+  }
+
+  &__preview {
+    display: block;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    font-size: 2rem;
+    padding: 0 1rem;
+    line-height: 3.5rem;
+    color: $default-font-color;
+    text-decoration: none;
+  }
+
+  &__popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    //color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+
+    &:target {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup {
+      width: 60%;
+      height: 40rem;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 10rem;
+      background-color: $popup-background;
+      border-radius: 0.5rem;
+
+      &__heading {
+        text-align: center;
+
+        &--main {
+          font-size: 3rem;
+        }
+
+        &--sub {
+          font-size: 1.5rem;
+
+          .list-title {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
