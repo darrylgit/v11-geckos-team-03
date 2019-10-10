@@ -1,5 +1,6 @@
 export default (state = [], action) => {
   let currentCards = [...state];
+  //const { cardId } = action.payload;
   switch (action.type) {
     case "ADD_CARD":
       return [
@@ -24,6 +25,30 @@ export default (state = [], action) => {
       currentCards.forEach(card => {
         if (card.cardId === action.payload.cardId) {
           card.description = action.payload.descriptionInput;
+        }
+      });
+      return currentCards;
+    case "ADD_CHECKLIST_ITEM":
+      const { checklistItemTitle, checklistItemId, checked } = action.payload;
+      const newItem = { checklistItemTitle, checklistItemId, checked };
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload.cardId) {
+          card.checklist.push(newItem);
+        }
+      });
+      return currentCards;
+    case "CHECKLIST_CHECK":
+      console.log("CHECKLIST_CHECK");
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload.cardId) {
+          console.log("found the card");
+          console.log(action.payload.checklistItemId);
+          card.checklist.forEach(item => {
+            if (item.checklistItemId === action.payload.checklistItemId) {
+              console.log("found the item");
+              item.checked = !item.checked;
+            }
+          });
         }
       });
       return currentCards;

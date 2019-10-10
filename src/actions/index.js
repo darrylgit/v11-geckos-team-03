@@ -45,3 +45,30 @@ export const updateCardDescription = (cardId, descriptionInput) => {
     }
   };
 };
+
+export const addChecklistItem = (
+  cardId,
+  checklistItemTitle,
+  checklistItemId,
+  checked
+) => {
+  return {
+    type: "ADD_CHECKLIST_ITEM",
+    payload: {
+      cardId,
+      checklistItemTitle,
+      checklistItemId,
+      checked
+    }
+  };
+};
+
+export const checklistCheck = (cardId, checklistItemId) => {
+  return {
+    type: "CHECKLIST_CHECK",
+    payload: {
+      cardId,
+      checklistItemId
+    }
+  };
+};

@@ -95,7 +95,7 @@ body {
 /* line 1, src/components/board/list/card/_popup.scss */
 .popup {
   width: 50%;
-  height: 40rem;
+  min-height: 40rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -105,17 +105,18 @@ body {
   padding: 1rem; }
   /* line 12, src/components/board/list/card/_popup.scss */
   .popup__heading {
-    text-align: center; }
-    /* line 15, src/components/board/list/card/_popup.scss */
+    text-align: center;
+    margin-bottom: 5rem; }
+    /* line 16, src/components/board/list/card/_popup.scss */
     .popup__heading--main {
       font-size: 3rem; }
-    /* line 19, src/components/board/list/card/_popup.scss */
+    /* line 20, src/components/board/list/card/_popup.scss */
     .popup__heading--sub {
       font-size: 1.5rem; }
-      /* line 22, src/components/board/list/card/_popup.scss */
+      /* line 23, src/components/board/list/card/_popup.scss */
       .popup__heading--sub .list-title {
         text-decoration: underline; }
-  /* line 28, src/components/board/list/card/_popup.scss */
+  /* line 29, src/components/board/list/card/_popup.scss */
   .popup__close {
     position: absolute;
     top: 3px;
@@ -124,32 +125,32 @@ body {
     font-size: 3rem;
     text-decoration: none;
     color: #333; }
-    /* line 37, src/components/board/list/card/_popup.scss */
+    /* line 38, src/components/board/list/card/_popup.scss */
     .popup__close:hover {
       color: red; }
-  /* line 42, src/components/board/list/card/_popup.scss */
+  /* line 43, src/components/board/list/card/_popup.scss */
   .popup__widget-heading {
     font-size: 2rem;
     margin-bottom: 0.5rem;
     display: inline-block;
     margin-right: 1rem; }
-  /* line 49, src/components/board/list/card/_popup.scss */
+  /* line 50, src/components/board/list/card/_popup.scss */
   .popup__main {
     width: 100%; }
-    /* line 52, src/components/board/list/card/_popup.scss */
+    /* line 53, src/components/board/list/card/_popup.scss */
     .popup__main--left {
       float: left;
       width: 75%; }
-    /* line 57, src/components/board/list/card/_popup.scss */
+    /* line 58, src/components/board/list/card/_popup.scss */
     .popup__main--right {
       float: right;
       width: 25%; }
-    /* line 62, src/components/board/list/card/_popup.scss */
+    /* line 63, src/components/board/list/card/_popup.scss */
     .popup__main .description {
       width: 100%;
       margin-bottom: 1rem;
       text-align: left; }
-      /* line 67, src/components/board/list/card/_popup.scss */
+      /* line 68, src/components/board/list/card/_popup.scss */
       .popup__main .description__prompt {
         display: block;
         background-color: #c5c9eb;
@@ -158,10 +159,10 @@ body {
         padding: 0.5rem;
         border-radius: 5px;
         height: 3rem; }
-        /* line 75, src/components/board/list/card/_popup.scss */
+        /* line 76, src/components/board/list/card/_popup.scss */
         .popup__main .description__prompt:hover {
           background-color: #9093ad; }
-      /* line 79, src/components/board/list/card/_popup.scss */
+      /* line 80, src/components/board/list/card/_popup.scss */
       .popup__main .description__textarea {
         display: block;
         background-color: white;
@@ -169,9 +170,41 @@ body {
         height: 4rem;
         padding: 0.5rem;
         border-radius: 5px; }
-      /* line 88, src/components/board/list/card/_popup.scss */
+      /* line 89, src/components/board/list/card/_popup.scss */
       .popup__main .description__display {
         display: block;
+        font-size: 1.8rem; }
+    /* line 95, src/components/board/list/card/_popup.scss */
+    .popup__main .checklist {
+      width: 100%;
+      margin-bottom: 1rem; }
+      /* line 104, src/components/board/list/card/_popup.scss */
+      .popup__main .checklist__items .item__checkbox {
+        display: inline-block;
+        height: 1.8rem;
+        width: 1.8rem;
+        border-radius: 2px;
+        border: 2px solid #888;
+        margin-right: 2rem;
+        cursor: pointer; }
+        /* line 113, src/components/board/list/card/_popup.scss */
+        .popup__main .checklist__items .item__checkbox--unchecked {
+          background-color: white; }
+        /* line 117, src/components/board/list/card/_popup.scss */
+        .popup__main .checklist__items .item__checkbox--checked {
+          position: relative;
+          background-color: blue;
+          color: white;
+          font-size: 1.5rem; }
+          /* line 124, src/components/board/list/card/_popup.scss */
+          .popup__main .checklist__items .item__checkbox--checked .checkmark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); }
+      /* line 133, src/components/board/list/card/_popup.scss */
+      .popup__main .checklist__items .item__title {
+        display: inline-block;
         font-size: 1.8rem; }
 
 /* line 1, src/sass/components/_form.scss */

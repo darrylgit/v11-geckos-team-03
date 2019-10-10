@@ -14,17 +14,17 @@ function CardPopup(props) {
           </h4>
         </div>
 
-        <a href="#board" className="popup__close">
+        <a href="#board" className="popup__close" draggable="false">
           &times;
         </a>
         <div className="popup__main">
           <div className="popup__main--left">
             <Description cardId={props.cardId}></Description>
-            <h3 className="popup__widget-heading">Checklist</h3>
-            <Checklist></Checklist>
+
+            <Checklist cardId={props.cardId}></Checklist>
           </div>
           <div className="popup__main--right">
-            <SideMenu></SideMenu>
+            <SideMenu cardId={props.cardId}></SideMenu>
           </div>
         </div>
       </div>

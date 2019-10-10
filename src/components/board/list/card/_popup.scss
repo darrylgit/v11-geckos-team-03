@@ -1,6 +1,6 @@
 .popup {
   width: 50%;
-  height: 40rem;
+  min-height: 40rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -11,6 +11,7 @@
 
   &__heading {
     text-align: center;
+    margin-bottom: 5rem;
 
     &--main {
       font-size: 3rem;
@@ -88,6 +89,52 @@
       &__display {
         display: block;
         font-size: 1.8rem;
+      }
+    }
+
+    .checklist {
+      width: 100%;
+      margin-bottom: 1rem;
+
+      &__prompt {
+      }
+
+      &__items {
+        .item {
+          &__checkbox {
+            display: inline-block;
+            height: 1.8rem;
+            width: 1.8rem;
+            border-radius: 2px;
+            border: 2px solid #888;
+            margin-right: 2rem;
+            cursor: pointer;
+
+            &--unchecked {
+              background-color: white;
+            }
+
+            &--checked {
+              position: relative;
+              background-color: blue;
+              color: white;
+              font-size: 1.5rem;
+              //text-align: center;
+
+              .checkmark {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              }
+            }
+          }
+
+          &__title {
+            display: inline-block;
+            font-size: 1.8rem;
+          }
+        }
       }
     }
   }
