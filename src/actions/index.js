@@ -36,6 +36,24 @@ export const moveCard = (cardId, newListHome) => {
   };
 };
 
+export const copyCard = (sourceCardId, newCardId, newListHome) => {
+  return {
+    type: "COPY_CARD",
+    payload: {
+      sourceCardId,
+      newCardId,
+      newListHome
+    }
+  };
+};
+
+export const archiveCard = cardId => {
+  return {
+    type: "ARCHIVE_CARD",
+    payload: cardId
+  };
+};
+
 export const updateCardDescription = (cardId, descriptionInput) => {
   return {
     type: "UPDATE_CARD_DESCRIPTION",

@@ -80,7 +80,7 @@ class Description extends React.Component {
               ></textarea>
             </div>
             <div className="form__group">
-              <input type="submit" className="form__submit" value="Submit" />
+              <input type="submit" className="form__submit" value="Save" />
               <button className="form__cancel" onClick={this.toggleMode}>
                 Cancel
               </button>

@@ -148,7 +148,7 @@ body {
     /* line 63, src/components/board/list/card/_popup.scss */
     .popup__main .description {
       width: 100%;
-      margin-bottom: 1rem;
+      margin-bottom: 4rem;
       text-align: left; }
       /* line 68, src/components/board/list/card/_popup.scss */
       .popup__main .description__prompt {
@@ -177,7 +177,7 @@ body {
     /* line 95, src/components/board/list/card/_popup.scss */
     .popup__main .checklist {
       width: 100%;
-      margin-bottom: 1rem; }
+      margin-bottom: 4rem; }
       /* line 104, src/components/board/list/card/_popup.scss */
       .popup__main .checklist__items .item__checkbox {
         display: inline-block;
@@ -196,16 +196,36 @@ body {
           background-color: blue;
           color: white;
           font-size: 1.5rem; }
-          /* line 124, src/components/board/list/card/_popup.scss */
+          /* line 123, src/components/board/list/card/_popup.scss */
           .popup__main .checklist__items .item__checkbox--checked .checkmark {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%); }
-      /* line 133, src/components/board/list/card/_popup.scss */
+      /* line 132, src/components/board/list/card/_popup.scss */
       .popup__main .checklist__items .item__title {
         display: inline-block;
         font-size: 1.8rem; }
+    /* line 140, src/components/board/list/card/_popup.scss */
+    .popup__main .sidemenu {
+      position: relative;
+      padding-left: 2rem;
+      padding-right: 2rem; }
+      /* line 145, src/components/board/list/card/_popup.scss */
+      .popup__main .sidemenu__button {
+        display: block;
+        background-color: #888;
+        color: white;
+        font-size: 1.5rem;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+        border: #888;
+        cursor: pointer; }
+        /* line 157, src/components/board/list/card/_popup.scss */
+        .popup__main .sidemenu__button:hover {
+          background-color: #444; }
 
 /* line 1, src/sass/components/_form.scss */
 .form {
