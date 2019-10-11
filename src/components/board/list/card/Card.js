@@ -1,8 +1,8 @@
 import React from "react";
-import { ItemTypes } from "../Constants";
+import { ItemTypes } from "../../Constants";
 import { useDrag } from "react-dnd";
 import { connect } from "react-redux";
-import { moveCard } from "../../../actions";
+import { moveCard } from "../../../../actions";
 
 function Card(props) {
   // Drag source hook
@@ -19,17 +19,22 @@ function Card(props) {
     })
   });
 
+  const popupHref = `#${props.cardId}`;
+
   return (
-    <div
-      ref={drag}
-      className="card"
-      style={{
-        opacity: isDragging ? 0.5 : 1,
-        zIndex: isDragging ? 3 : 3,
-        cursor: "move"
-      }}
-    >
-      {props.cardTitle}
+    <div className="card">
+      <a
+        href={popupHref}
+        ref={drag}
+        className="card__preview"
+        style={{
+          opacity: isDragging ? 0.5 : 1,
+          zIndex: isDragging ? 3 : 3,
+          cursor: "move"
+        }}
+      >
+        {props.cardTitle}
+      </a>
     </div>
   );
 }
