@@ -26,7 +26,6 @@ class Checklist extends React.Component {
     }
 
     // Generate a unique key and listItemId in the event of duplicate list item titles
-    console.log(this.props.card.checklist);
     const generateChecklistItemId = inputId => {
       if (
         !this.props.card.checklist.find(

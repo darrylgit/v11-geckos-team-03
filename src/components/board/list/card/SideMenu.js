@@ -52,11 +52,13 @@ class SideMenu extends React.Component {
   };
 
   listOptionsArray = () =>
-    this.props.lists.map(list => (
-      <option key={list.listId} value={list.listId}>
-        {list.title}
-      </option>
-    ));
+    this.props.lists
+      .filter(list => !list.archived)
+      .map(list => (
+        <option key={list.listId} value={list.listId}>
+          {list.title}
+        </option>
+      ));
 
   render() {
     if (!this.state.modal) {
