@@ -19,7 +19,7 @@ body {
 /* line 1, src/sass/base/_typography.scss */
 body {
   color: #333;
-  font-family: sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 /* line 1, src/components/board/_board.scss */
 .board {
@@ -51,7 +51,7 @@ body {
         color: #bbb; }
   /* line 33, src/components/board/_board.scss */
   .addList__input {
-    background-color: #c5c9eb; }
+    background-color: #e0e4ff; }
   /* line 37, src/components/board/_board.scss */
   .addList__form {
     width: 100%; }
@@ -100,7 +100,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   margin-top: 10rem;
-  background-color: #c5c9eb;
+  background-color: #e0e4ff;
   border-radius: 0.5rem;
   padding: 1rem; }
   /* line 12, src/components/board/list/card/_popup.scss */
@@ -153,7 +153,7 @@ body {
       /* line 68, src/components/board/list/card/_popup.scss */
       .popup__main .description__prompt {
         display: block;
-        background-color: #c5c9eb;
+        background-color: #e0e4ff;
         border: none;
         cursor: pointer;
         padding: 0.5rem;
@@ -283,7 +283,7 @@ body {
 /* line 1, src/components/board/list/_list.scss */
 .list {
   width: 100%;
-  background-color: #c5c9eb;
+  background-color: #e0e4ff;
   border-radius: 0.5rem;
   min-height: 120px;
   position: relative;
@@ -351,8 +351,9 @@ body {
 /* line 1, src/components/navbar/_navbar.scss */
 .navbar {
   display: grid;
-  grid-template-areas: "header header header" "title . menu"; }
-  /* line 7, src/components/navbar/_navbar.scss */
+  grid-template-areas: "header header header" "title . menu";
+  position: relative; }
+  /* line 8, src/components/navbar/_navbar.scss */
   .navbar__logo {
     width: 100vw;
     padding: 5px 0;
@@ -361,7 +362,7 @@ body {
     font-size: 1.5em;
     color: white;
     text-align: center; }
-  /* line 17, src/components/navbar/_navbar.scss */
+  /* line 18, src/components/navbar/_navbar.scss */
   .navbar__input {
     margin-left: 10px;
     padding: 5px 0;
@@ -373,18 +374,147 @@ body {
     font-weight: 700;
     color: white;
     text-align: center; }
-  /* line 30, src/components/navbar/_navbar.scss */
+  /* line 31, src/components/navbar/_navbar.scss */
   .navbar__input--infocus {
     background-color: white;
     color: #333; }
-  /* line 35, src/components/navbar/_navbar.scss */
+  /* line 36, src/components/navbar/_navbar.scss */
   .navbar__input--hover {
     background-color: #00a2ff; }
-  /* line 39, src/components/navbar/_navbar.scss */
+  /* line 40, src/components/navbar/_navbar.scss */
   .navbar__menu {
     grid-area: menu;
     margin-right: 30px;
-    color: white; }
-  /* line 45, src/components/navbar/_navbar.scss */
+    color: white;
+    cursor: pointer; }
+  /* line 47, src/components/navbar/_navbar.scss */
   .navbar__menu h1 {
     font-weight: 100; }
+
+/* line 1, src/components/navbar/_sidebar.scss */
+#sidebar-root {
+  position: fixed;
+  top: 7.7rem;
+  right: calc(-1 * 40rem);
+  height: calc(var(--vh, 1vh) * 100 - 7.7rem);
+  width: 40rem; }
+
+/* line 9, src/components/navbar/_sidebar.scss */
+.portal-inner {
+  height: 100%; }
+
+/* line 13, src/components/navbar/_sidebar.scss */
+.sidebar {
+  position: absolute;
+  height: calc(var(--vh, 1vh) * 100 - 7.7rem);
+  background-color: #e0e4ff;
+  border-radius: 8px 0 0 8px;
+  width: 40rem;
+  padding: 1.5rem;
+  transition: left 0.3s; }
+  /* line 16, src/components/navbar/_sidebar.scss */
+  .sidebar--hidden {
+    left: 0rem; }
+  /* line 20, src/components/navbar/_sidebar.scss */
+  .sidebar--shown {
+    left: calc(-1 * 40rem); }
+  /* line 31, src/components/navbar/_sidebar.scss */
+  .sidebar__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40rem; }
+  /* line 41, src/components/navbar/_sidebar.scss */
+  .sidebar .sidebar-menu__heading {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem; }
+  /* line 48, src/components/navbar/_sidebar.scss */
+  .sidebar .sidebar-menu__item {
+    font-size: 2rem;
+    padding: 2rem 1rem 2rem 1rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background-color: #e0e4ff;
+    cursor: pointer; }
+    /* line 56, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__item:hover {
+      background-color: #9093ad; }
+  /* line 61, src/components/navbar/_sidebar.scss */
+  .sidebar .sidebar-menu__interface {
+    position: absolute;
+    top: 0;
+    width: 40rem;
+    height: 100%;
+    background-color: white;
+    border-radius: 8px 0 0 8px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+    overflow-y: hidden; }
+    /* line 72, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__interface--hidden {
+      right: calc(-1 * 40rem); }
+    /* line 76, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__interface--visible {
+      right: 0; }
+    /* line 80, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__interface--close {
+      position: absolute;
+      top: 3px;
+      right: 1rem;
+      cursor: pointer;
+      font-size: 3rem; }
+      /* line 87, src/components/navbar/_sidebar.scss */
+      .sidebar .sidebar-menu__interface--close:hover {
+        color: red; }
+    /* line 93, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__interface .archive-toggle {
+      display: flex;
+      justify-content: center; }
+      /* line 97, src/components/navbar/_sidebar.scss */
+      .sidebar .sidebar-menu__interface .archive-toggle__button {
+        width: 25%;
+        font-size: 2rem;
+        color: white;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        border-radius: 5px;
+        border: none;
+        margin: 0.5rem; }
+        /* line 106, src/components/navbar/_sidebar.scss */
+        .sidebar .sidebar-menu__interface .archive-toggle__button:focus {
+          outline: none; }
+        /* line 110, src/components/navbar/_sidebar.scss */
+        .sidebar .sidebar-menu__interface .archive-toggle__button--inactive {
+          background-color: #444;
+          cursor: pointer; }
+        /* line 115, src/components/navbar/_sidebar.scss */
+        .sidebar .sidebar-menu__interface .archive-toggle__button--active {
+          background-color: blue; }
+    /* line 121, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__interface .archive__list {
+      margin-top: 2rem; }
+    /* line 125, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__interface .archive__item {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-center;
+      margin-bottom: 2rem; }
+      /* line 131, src/components/navbar/_sidebar.scss */
+      .sidebar .sidebar-menu__interface .archive__item--title {
+        font-size: 2rem;
+        padding: 1em 4rem 1rem 4rem;
+        text-align: center;
+        background-color: #ddd;
+        border-radius: 5px; }
+      /* line 139, src/components/navbar/_sidebar.scss */
+      .sidebar .sidebar-menu__interface .archive__item--restore {
+        font-size: 2rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        text-align: center;
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer; }

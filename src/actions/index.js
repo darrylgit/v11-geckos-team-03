@@ -15,6 +15,13 @@ export const archiveList = listId => {
   };
 };
 
+export const restoreList = listId => {
+  return {
+    type: "RESTORE_LIST",
+    payload: listId
+  };
+};
+
 export const addCard = (title, cardId, listHome) => {
   return {
     type: "ADD_CARD",
@@ -50,6 +57,13 @@ export const copyCard = (sourceCardId, newCardId, newListHome) => {
 export const archiveCard = cardId => {
   return {
     type: "ARCHIVE_CARD",
+    payload: cardId
+  };
+};
+
+export const restoreCard = cardId => {
+  return {
+    type: "RESTORE_CARD",
     payload: cardId
   };
 };

@@ -39,6 +39,13 @@ export default (state = [], action) => {
         }
       });
       return currentCards;
+    case "RESTORE_CARD":
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload) {
+          card.archived = false;
+        }
+      });
+      return currentCards;
     case "UPDATE_CARD_DESCRIPTION":
       // Locate coresponding card in store
       currentCards.forEach(card => {

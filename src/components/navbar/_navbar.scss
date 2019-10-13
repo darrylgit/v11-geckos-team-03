@@ -3,6 +3,7 @@
   grid-template-areas:
     "header header header"
     "title . menu";
+  position: relative;
 
   &__logo {
     width: 100vw;
@@ -40,6 +41,7 @@
     grid-area: menu;
     margin-right: 30px;
     color: white;
+    cursor: pointer;
   }
 
   &__menu h1 {
