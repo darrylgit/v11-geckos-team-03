@@ -6,6 +6,11 @@
   box-sizing: inherit;
 }
 
+:root {
+  --body-background: blue;
+  --body-background-light: #00a2ff;
+}
+
 html {
   // defines 1rem
   font-size: 62.5%;
@@ -14,7 +19,5 @@ html {
 body {
   box-sizing: border-box;
   height: 100vh;
-
-  // Run npm start, change this value, and save. Should trigger an automatic Sass compilation and reload of the page
-  background-color: blue;
+  background-color: var(--body-background);
 }

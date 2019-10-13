@@ -13,7 +13,7 @@ class AddCard extends React.Component {
 
   // Hover effect (CSS's :hover pseudoselector wasn't creating the desired effect)
   backgroundColor = {
-    default: "#c5c9eb",
+    default: "#e0e4ff",
     hover: "#9093ad"
   };
 

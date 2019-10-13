@@ -43,7 +43,7 @@ class Description extends React.Component {
       ) {
         return (
           <div className="description">
-            <h3 className="popup__widget-heading">Description</h3>
+            <h3 className="modal__widget-heading">Description</h3>
             <button className="description__prompt" onClick={this.toggleMode}>
               Add a description...
             </button>
@@ -52,8 +52,8 @@ class Description extends React.Component {
       } else {
         return (
           <div className="description">
-            <h3 className="popup__widget-heading">Description</h3>
-            <button className="form__edit" onClick={this.toggleMode}>
+            <h3 className="modal__widget-heading">Description</h3>
+            <button className="modal__button--inline" onClick={this.toggleMode}>
               Edit
             </button>
             <div className="description__display">
@@ -65,7 +65,7 @@ class Description extends React.Component {
     } else if (this.state.mode === "input") {
       return (
         <div className="description description__input">
-          <h3 className="popup__widget-heading">Description</h3>
+          <h3 className="modal__widget-heading">Description</h3>
           <form onSubmit={this.onFormSubmit} className="form">
             <div className="form__group">
               <textarea

@@ -39,6 +39,13 @@ export default (state = [], action) => {
         }
       });
       return currentCards;
+    case "RESTORE_CARD":
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload) {
+          card.archived = false;
+        }
+      });
+      return currentCards;
     case "UPDATE_CARD_DESCRIPTION":
       // Locate coresponding card in store
       currentCards.forEach(card => {
@@ -70,6 +77,17 @@ export default (state = [], action) => {
               item.checked = !item.checked;
             }
           });
+        }
+      });
+      return currentCards;
+    case "CHECKLIST_DELETE":
+      // Locate corresponding card in store
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload.cardId) {
+          // Locate corresponding checklist item inside, filter out item with payload's id
+          card.checklist = card.checklist.filter(
+            item => item.checklistItemId !== action.payload.checklistItemId
+          );
         }
       });
       return currentCards;

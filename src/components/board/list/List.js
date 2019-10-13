@@ -1,6 +1,6 @@
 import AddCard from "./AddCard";
 import Card from "./card/Card";
-import CardPopup from "./card/CardPopup";
+import CardModal from "./card/CardModal";
 import React from "react";
 import { connect } from "react-redux";
 import { archiveList } from "../../../actions";
@@ -36,8 +36,8 @@ class List extends React.Component {
   setSpansAddCard = addCardHeight => {
     // When adding a card, the cards div's ref gives us its height before the card has been added. Therefore, before the card is added, we need to predict what that div's height will be and set the List's height accordingly.
     let cardsHeight;
-    const cardsDivHeightWhenEmpty = 10; // TODO: don't hardcode this value
-    const heightOfOneCard = 45; // TODO: don't hardcode this value
+    const cardsDivHeightWhenEmpty = 10;
+    const heightOfOneCard = 46;
 
     if (this.cardsRef.current.clientHeight === cardsDivHeightWhenEmpty) {
       cardsHeight = heightOfOneCard;
@@ -57,9 +57,8 @@ class List extends React.Component {
 
   // Function to handle list height change, memoized to respond to drag-and-drop events (i.e. to cards prop changes)
   setSpansDnd = memoize((cardsArray, addCardHeight) => {
-    const heightOfOneCard = 45; // TODO: don't hardcode this value
-    const headingHeight = 48; // TODO: don't hardcode this value
-
+    const heightOfOneCard = 46;
+    const headingHeight = 48;
     const height =
       headingHeight + cardsArray.length * heightOfOneCard + 5 + addCardHeight;
     const spans = Math.ceil(height / 10) + 1;
@@ -84,9 +83,9 @@ class List extends React.Component {
     ));
 
   // Make array of CardPopup components from props
-  cardPopupsArray = () =>
+  cardModalsArray = () =>
     this.props.cards.map(card => (
-      <CardPopup
+      <CardModal
         key={card.cardId}
         cardId={card.cardId}
         cardTitle={card.title}
@@ -128,7 +127,7 @@ class List extends React.Component {
             setSpansUpdateForCard={this.setSpansAddCard}
           />
         </div>
-        <div className="card-popups">{this.cardPopupsArray()}</div>
+        <div className="card-modals">{this.cardModalsArray()}</div>
       </ListDropTarget>
     );
   }

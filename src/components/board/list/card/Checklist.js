@@ -7,7 +7,8 @@ import ChecklistItem from "./ChecklistItem";
 class Checklist extends React.Component {
   state = {
     mode: "prompt",
-    newItemInput: ""
+    newItemInput: "",
+    deleteCount: 0
   };
 
   toggleMode = () => {
@@ -56,6 +57,11 @@ class Checklist extends React.Component {
     this.setState({ newItemInput: e.target.value });
   };
 
+  signalDelete = () => {
+    let newDeleteCount = this.state.deleteCount + 1;
+    this.setState({ deleteCount: newDeleteCount });
+  };
+
   checklistItemsArray = () =>
     this.props.card.checklist.map(item => (
       <ChecklistItem
@@ -63,6 +69,7 @@ class Checklist extends React.Component {
         checklistItemTitle={item.checklistItemTitle}
         checklistItemId={item.checklistItemId}
         cardId={this.props.cardId}
+        signalDelete={this.signalDelete}
       />
     ));
 
@@ -70,8 +77,8 @@ class Checklist extends React.Component {
     if (this.state.mode === "prompt") {
       return (
         <div className="checklist">
-          <h3 className="popup__widget-heading">Checklist</h3>
-          <button onClick={this.toggleMode} className="checklist__prompt">
+          <h3 className="modal__widget-heading">Checklist</h3>
+          <button onClick={this.toggleMode} className="modal__button--inline">
             Add Item
           </button>
           <div className="checklist__items">{this.checklistItemsArray()}</div>
@@ -80,7 +87,7 @@ class Checklist extends React.Component {
     } else {
       return (
         <div className="checklist">
-          <h3 className="popup__widget-heading">Checklist</h3>
+          <h3 className="modal__widget-heading">Checklist</h3>
           <div className="checklist__items">{this.checklistItemsArray()}</div>
           <form onSubmit={this.onFormSubmit} className="form">
             <div className="form__group">

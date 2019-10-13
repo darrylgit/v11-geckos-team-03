@@ -15,6 +15,13 @@ export const archiveList = listId => {
   };
 };
 
+export const restoreList = listId => {
+  return {
+    type: "RESTORE_LIST",
+    payload: listId
+  };
+};
+
 export const addCard = (title, cardId, listHome) => {
   return {
     type: "ADD_CARD",
@@ -54,6 +61,13 @@ export const archiveCard = cardId => {
   };
 };
 
+export const restoreCard = cardId => {
+  return {
+    type: "RESTORE_CARD",
+    payload: cardId
+  };
+};
+
 export const updateCardDescription = (cardId, descriptionInput) => {
   return {
     type: "UPDATE_CARD_DESCRIPTION",
@@ -84,6 +98,16 @@ export const addChecklistItem = (
 export const checklistCheck = (cardId, checklistItemId) => {
   return {
     type: "CHECKLIST_CHECK",
+    payload: {
+      cardId,
+      checklistItemId
+    }
+  };
+};
+
+export const checklistDelete = (cardId, checklistItemId) => {
+  return {
+    type: "CHECKLIST_DELETE",
     payload: {
       cardId,
       checklistItemId

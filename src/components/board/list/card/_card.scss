@@ -18,23 +18,6 @@
     line-height: 3.5rem;
     color: $default-font-color;
     text-decoration: none;
-  }
-
-  &__popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s;
-
-    &:target {
-      visibility: visible;
-      opacity: 1;
-    }
+    border-bottom: 1px solid $default-font-color;
   }
 }

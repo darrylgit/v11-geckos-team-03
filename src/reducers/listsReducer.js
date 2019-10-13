@@ -1,4 +1,5 @@
 export default (state = [], action) => {
+  let currentLists = [...state];
   switch (action.type) {
     case "ADD_LIST":
       return [
@@ -10,10 +11,16 @@ export default (state = [], action) => {
         }
       ];
     case "ARCHIVE_LIST":
-      let currentLists = [...state];
       currentLists.forEach(list => {
         if (list.listId === action.payload) {
           list.archived = true;
+        }
+      });
+      return currentLists;
+    case "RESTORE_LIST":
+      currentLists.forEach(list => {
+        if (list.listId === action.payload) {
+          list.archived = false;
         }
       });
       return currentLists;
