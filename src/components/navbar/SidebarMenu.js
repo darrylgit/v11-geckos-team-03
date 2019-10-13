@@ -1,4 +1,5 @@
 import React from "react";
+
 import Archive from "./Archive";
 import ChangeBackground from "./ChangeBackground";
 
@@ -32,6 +33,12 @@ class SidebarMenu extends React.Component {
         >
           Change Background
         </button>
+        <a
+          href="https://github.com/chingu-voyages/v11-geckos-team-03"
+          target="_blank"
+        >
+          <button className="sidebar-menu__item">View Repo</button>
+        </a>
         <Archive
           hidden={this.state.archiveHidden}
           toggleArchive={this.toggleArchive}

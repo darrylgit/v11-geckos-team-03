@@ -1,4 +1,4 @@
-.popup {
+.modal {
   width: 50%;
   min-height: 40rem;
   position: absolute;
@@ -8,6 +8,24 @@
   background-color: $component-background;
   border-radius: 0.5rem;
   padding: 1rem;
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+
+    &:target {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 
   &__heading {
     text-align: center;
@@ -45,6 +63,22 @@
     margin-bottom: 0.5rem;
     display: inline-block;
     margin-right: 1rem;
+  }
+
+  &__button--inline {
+    display: inline-block;
+    background-color: #888;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: #888;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #444;
+    }
   }
 
   &__main {
@@ -96,13 +130,11 @@
       width: 100%;
       margin-bottom: 4rem;
 
-      &__prompt {
-      }
-
       &__items {
         .item {
+          display: flex;
           &__checkbox {
-            display: inline-block;
+            //display: inline-block;
             height: 1.8rem;
             width: 1.8rem;
             border-radius: 2px;
@@ -130,8 +162,18 @@
           }
 
           &__title {
-            display: inline-block;
+            //display: inline-block;
             font-size: 1.8rem;
+          }
+
+          &__delete {
+            margin-left: 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+
+            &:hover {
+              color: red;
+            }
           }
         }
       }
@@ -156,6 +198,67 @@
 
         &:hover {
           background-color: #444;
+        }
+      }
+
+      &__panel {
+        position: absolute;
+        width: $popup-panel-width;
+        left: calc(-1 * #{$popup-panel-width});
+        top: 3rem;
+        background-color: white;
+        border: solid 2px #888;
+        border-radius: 5px;
+        padding: 1rem;
+
+        &--heading {
+          text-align: center;
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        &--close {
+          position: absolute;
+          top: 3px;
+          right: 1rem;
+          cursor: pointer;
+          font-size: 3rem;
+
+          &:hover {
+            color: red;
+          }
+        }
+
+        &--label {
+          margin-top: 1rem;
+          font-size: 1.4rem;
+        }
+
+        &--select {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          display: block;
+          width: 100%;
+          font-size: 1.4rem;
+          padding: 5px;
+        }
+
+        &--submit {
+          padding: 0.5rem 1rem 0.5rem 1rem;
+          cursor: pointer;
+          color: white;
+          background-color: $color-primary;
+          border-radius: 5px;
+          border: none;
+
+          &:hover {
+            background-color: $color-primary-dark;
+          }
+
+          &:active,
+          &:focus {
+            outline: none;
+          }
         }
       }
     }

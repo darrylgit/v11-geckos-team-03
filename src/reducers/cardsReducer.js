@@ -80,6 +80,19 @@ export default (state = [], action) => {
         }
       });
       return currentCards;
+    case "CHECKLIST_DELETE":
+      // Locate corresponding card in store
+      currentCards.forEach(card => {
+        if (card.cardId === action.payload.cardId) {
+          // Locate corresponding checklist item inside that card's checklist
+          console.log(card.checklist);
+          card.checklist = card.checklist.filter(
+            item => item.checklistItemId !== action.payload.checklistItemId
+          );
+          console.log(card.checklist);
+        }
+      });
+      return currentCards;
     default:
       return state;
   }

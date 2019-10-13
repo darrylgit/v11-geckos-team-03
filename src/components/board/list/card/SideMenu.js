@@ -3,23 +3,23 @@ import { connect } from "react-redux";
 import { archiveCard, moveCard, copyCard } from "../../../../actions";
 
 class SideMenu extends React.Component {
-  state = { modal: "", value: this.props.listHome };
+  state = { panel: "", value: this.props.listHome };
 
-  openMoveCardModal = () => {
-    this.setState({ modal: "move" });
+  openMoveCardPanel = () => {
+    this.setState({ panel: "move" });
   };
 
-  openCopyCardModal = () => {
-    this.setState({ modal: "copy" });
+  openCopyCardPanel = () => {
+    this.setState({ panel: "copy" });
   };
 
-  closeModal = () => {
-    this.setState({ modal: "" });
+  closePanel = () => {
+    this.setState({ panel: "" });
   };
 
   archiveCard = () => {
     this.props.archiveCard(this.props.cardId);
-    this.setState({ modal: "" });
+    this.setState({ panel: "" });
   };
 
   handleChange = e => {
@@ -29,7 +29,7 @@ class SideMenu extends React.Component {
   onMoveSubmit = e => {
     e.preventDefault();
     this.props.moveCard(this.props.cardId, this.state.value);
-    this.setState({ modal: "", value: this.props.listHome });
+    this.setState({ panel: "", value: this.props.listHome });
   };
 
   onCopySubmit = e => {
@@ -48,7 +48,7 @@ class SideMenu extends React.Component {
 
     this.props.copyCard(this.props.cardId, cardId, this.state.value);
 
-    this.setState({ modal: "", value: this.props.listHome });
+    this.setState({ panel: "", value: this.props.listHome });
   };
 
   listOptionsArray = () =>
@@ -61,70 +61,114 @@ class SideMenu extends React.Component {
       ));
 
   render() {
-    if (!this.state.modal) {
+    if (!this.state.panel) {
       return (
         <div className="sidemenu">
-          <button className="sidemenu__button" onClick={this.openMoveCardModal}>
-            Move Card
+          <button className="sidemenu__button" onClick={this.openMoveCardPanel}>
+            Move
+            <br />
+            Card
           </button>
-          <button className="sidemenu__button" onClick={this.openCopyCardModal}>
-            Copy Card
+          <button className="sidemenu__button" onClick={this.openCopyCardPanel}>
+            Copy
+            <br />
+            Card
           </button>
           <button className="sidemenu__button" onClick={this.archiveCard}>
-            Archive Card
+            Archive
+            <br />
+            Card
           </button>
         </div>
       );
-    } else if (this.state.modal === "move") {
+    } else if (this.state.panel === "move") {
       return (
         <div className="sidemenu">
-          <button className="sidemenu__button" onClick={this.openMoveCardModal}>
-            Move Card
+          <button className="sidemenu__button" onClick={this.openMoveCardPanel}>
+            Move
+            <br />
+            Card
           </button>
-          <button className="sidemenu__button" onClick={this.openCopyCardModal}>
-            Copy Card
+          <button className="sidemenu__button" onClick={this.openCopyCardPanel}>
+            Copy
+            <br />
+            Card
           </button>
           <button className="sidemenu__button" onClick={this.archiveCard}>
-            Archive Card
+            Archive
+            <br />
+            Card
           </button>
-          <div className="sidemenu__modal">
-            <h4 className="sidemenu__modal--heading">Move Card</h4>
-            <form onSubmit={this.onMoveSubmit}>
-              <label>
-                Choose destination list:{" "}
-                <select value={this.state.value} onChange={this.handleChange}>
-                  {this.listOptionsArray()}
-                </select>
-              </label>
 
-              <input type="submit" value="Move" />
+          <div className="sidemenu__panel">
+            <h4 className="sidemenu__panel--heading">Move Card</h4>
+            <div className="sidemenu__panel--close" onClick={this.closePanel}>
+              &times;
+            </div>
+            <form onSubmit={this.onMoveSubmit}>
+              <label className="sidemenu__panel--label" htmlFor="moveSelect">
+                Choose destination list:{" "}
+              </label>
+              <select
+                value={this.state.value}
+                onChange={this.handleChange}
+                className="sidemenu__panel--select"
+                id="moveSelect"
+              >
+                {this.listOptionsArray()}
+              </select>
+
+              <input
+                type="submit"
+                value="Move"
+                className="sidemenu__panel--submit"
+              />
             </form>
           </div>
         </div>
       );
-    } else if (this.state.modal === "copy") {
+    } else if (this.state.panel === "copy") {
       return (
         <div className="sidemenu">
-          <button className="sidemenu__button" onClick={this.openMoveCardModal}>
-            Move Card
+          <button className="sidemenu__button" onClick={this.openMoveCardPanel}>
+            Move
+            <br />
+            Card
           </button>
-          <button className="sidemenu__button" onClick={this.openCopyCardModal}>
-            Copy Card
+          <button className="sidemenu__button" onClick={this.openCopyCardPanel}>
+            Copy
+            <br />
+            Card
           </button>
           <button className="sidemenu__button" onClick={this.archiveCard}>
-            Archive Card
+            Archive
+            <br />
+            Card
           </button>
-          <div className="sidemenu__modal">
-            <h4 className="sidemenu__modal--heading">Copy Card</h4>
-            <form onSubmit={this.onCopySubmit}>
-              <label>
-                Choose destination list:{" "}
-                <select value={this.state.value} onChange={this.handleChange}>
-                  {this.listOptionsArray()}
-                </select>
-              </label>
 
-              <input type="submit" value="Copy" />
+          <div className="sidemenu__panel">
+            <h4 className="sidemenu__panel--heading">Copy Card</h4>
+            <div className="sidemenu__panel--close" onClick={this.closePanel}>
+              &times;
+            </div>
+            <form onSubmit={this.onCopySubmit}>
+              <label className="sidemenu__panel--label" htmlFor="copySelect">
+                Choose destination list:{" "}
+              </label>
+              <select
+                value={this.state.value}
+                onChange={this.handleChange}
+                className="sidemenu__panel--select"
+                id="copySelect"
+              >
+                {this.listOptionsArray()}
+              </select>
+
+              <input
+                type="submit"
+                value="Copy"
+                className="sidemenu__panel--submit"
+              />
             </form>
           </div>
         </div>

@@ -104,3 +104,13 @@ export const checklistCheck = (cardId, checklistItemId) => {
     }
   };
 };
+
+export const checklistDelete = (cardId, checklistItemId) => {
+  return {
+    type: "CHECKLIST_DELETE",
+    payload: {
+      cardId,
+      checklistItemId
+    }
+  };
+};

@@ -1,6 +1,6 @@
 import AddCard from "./AddCard";
 import Card from "./card/Card";
-import CardPopup from "./card/CardPopup";
+import CardModal from "./card/CardModal";
 import React from "react";
 import { connect } from "react-redux";
 import { archiveList } from "../../../actions";
@@ -84,9 +84,9 @@ class List extends React.Component {
     ));
 
   // Make array of CardPopup components from props
-  cardPopupsArray = () =>
+  cardModalsArray = () =>
     this.props.cards.map(card => (
-      <CardPopup
+      <CardModal
         key={card.cardId}
         cardId={card.cardId}
         cardTitle={card.title}
@@ -128,7 +128,7 @@ class List extends React.Component {
             setSpansUpdateForCard={this.setSpansAddCard}
           />
         </div>
-        <div className="card-popups">{this.cardPopupsArray()}</div>
+        <div className="card-modals">{this.cardModalsArray()}</div>
       </ListDropTarget>
     );
   }
