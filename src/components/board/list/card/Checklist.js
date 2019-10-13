@@ -74,7 +74,6 @@ class Checklist extends React.Component {
     ));
 
   render() {
-    console.log("Parent's cards prop is" + this.props.card.checklist);
     if (this.state.mode === "prompt") {
       return (
         <div className="checklist">

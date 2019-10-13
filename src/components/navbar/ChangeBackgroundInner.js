@@ -26,7 +26,11 @@ const colors = [
 
 const colorPalettes = () =>
   colors.map(color => (
-    <ColorPalette color={color.main} colorLight={color.light} />
+    <ColorPalette
+      key={color.main}
+      color={color.main}
+      colorLight={color.light}
+    />
   ));
 
 const ChangeBackgroundInner = props => {

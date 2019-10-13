@@ -36,6 +36,7 @@ class SidebarMenu extends React.Component {
         <a
           href="https://github.com/chingu-voyages/v11-geckos-team-03"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <button className="sidebar-menu__item">View Repo</button>
         </a>

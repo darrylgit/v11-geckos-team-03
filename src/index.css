@@ -79,20 +79,31 @@ body {
     padding: 0 1rem;
     line-height: 3.5rem;
     color: #333;
-    text-decoration: none; }
+    text-decoration: none;
+    border-bottom: 1px solid #333; }
 
 /* line 1, src/components/board/list/card/_modal.scss */
 .modal {
   width: 50%;
   min-height: 40rem;
+  max-height: calc(var(--vh, 1vh) * 100);
+  overflow-y: auto;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  margin-top: 10rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: #e0e4ff;
   border-radius: 0.5rem;
   padding: 1rem; }
-  /* line 12, src/components/board/list/card/_modal.scss */
+  @media only screen and (max-width: 56.25em) {
+    /* line 1, src/components/board/list/card/_modal.scss */
+    .modal {
+      width: 75%; } }
+  @media only screen and (max-width: 37.5em) {
+    /* line 1, src/components/board/list/card/_modal.scss */
+    .modal {
+      width: 90%; } }
+  /* line 23, src/components/board/list/card/_modal.scss */
   .modal__overlay {
     position: fixed;
     top: 0;
@@ -104,24 +115,24 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s; }
-    /* line 24, src/components/board/list/card/_modal.scss */
+    /* line 35, src/components/board/list/card/_modal.scss */
     .modal__overlay:target {
       visibility: visible;
       opacity: 1; }
-  /* line 30, src/components/board/list/card/_modal.scss */
+  /* line 41, src/components/board/list/card/_modal.scss */
   .modal__heading {
     text-align: center;
     margin-bottom: 5rem; }
-    /* line 34, src/components/board/list/card/_modal.scss */
+    /* line 45, src/components/board/list/card/_modal.scss */
     .modal__heading--main {
       font-size: 3rem; }
-    /* line 38, src/components/board/list/card/_modal.scss */
+    /* line 49, src/components/board/list/card/_modal.scss */
     .modal__heading--sub {
       font-size: 1.5rem; }
-      /* line 41, src/components/board/list/card/_modal.scss */
+      /* line 52, src/components/board/list/card/_modal.scss */
       .modal__heading--sub .list-title {
         text-decoration: underline; }
-  /* line 47, src/components/board/list/card/_modal.scss */
+  /* line 58, src/components/board/list/card/_modal.scss */
   .modal__close {
     position: absolute;
     top: 3px;
@@ -130,16 +141,16 @@ body {
     font-size: 3rem;
     text-decoration: none;
     color: #333; }
-    /* line 56, src/components/board/list/card/_modal.scss */
+    /* line 67, src/components/board/list/card/_modal.scss */
     .modal__close:hover {
       color: red; }
-  /* line 61, src/components/board/list/card/_modal.scss */
+  /* line 72, src/components/board/list/card/_modal.scss */
   .modal__widget-heading {
     font-size: 2rem;
     margin-bottom: 0.5rem;
     display: inline-block;
     margin-right: 1rem; }
-  /* line 68, src/components/board/list/card/_modal.scss */
+  /* line 79, src/components/board/list/card/_modal.scss */
   .modal__button--inline {
     display: inline-block;
     background-color: #888;
@@ -150,26 +161,34 @@ body {
     border-radius: 0.5rem;
     border: #888;
     cursor: pointer; }
-    /* line 79, src/components/board/list/card/_modal.scss */
+    /* line 90, src/components/board/list/card/_modal.scss */
     .modal__button--inline:hover {
       background-color: #444; }
-  /* line 84, src/components/board/list/card/_modal.scss */
+  /* line 95, src/components/board/list/card/_modal.scss */
   .modal__main {
     width: 100%; }
-    /* line 87, src/components/board/list/card/_modal.scss */
+    /* line 98, src/components/board/list/card/_modal.scss */
     .modal__main--left {
       float: left;
       width: 75%; }
-    /* line 92, src/components/board/list/card/_modal.scss */
+      @media only screen and (max-width: 37.5em) {
+        /* line 98, src/components/board/list/card/_modal.scss */
+        .modal__main--left {
+          width: 100%; } }
+    /* line 107, src/components/board/list/card/_modal.scss */
     .modal__main--right {
       float: right;
       width: 25%; }
-    /* line 97, src/components/board/list/card/_modal.scss */
+      @media only screen and (max-width: 37.5em) {
+        /* line 107, src/components/board/list/card/_modal.scss */
+        .modal__main--right {
+          width: 100%; } }
+    /* line 116, src/components/board/list/card/_modal.scss */
     .modal__main .description {
       width: 100%;
       margin-bottom: 4rem;
       text-align: left; }
-      /* line 102, src/components/board/list/card/_modal.scss */
+      /* line 121, src/components/board/list/card/_modal.scss */
       .modal__main .description__prompt {
         display: block;
         background-color: #e0e4ff;
@@ -178,10 +197,10 @@ body {
         padding: 0.5rem;
         border-radius: 5px;
         height: 3rem; }
-        /* line 110, src/components/board/list/card/_modal.scss */
+        /* line 129, src/components/board/list/card/_modal.scss */
         .modal__main .description__prompt:hover {
           background-color: #9093ad; }
-      /* line 114, src/components/board/list/card/_modal.scss */
+      /* line 133, src/components/board/list/card/_modal.scss */
       .modal__main .description__textarea {
         display: block;
         background-color: white;
@@ -189,18 +208,18 @@ body {
         height: 4rem;
         padding: 0.5rem;
         border-radius: 5px; }
-      /* line 123, src/components/board/list/card/_modal.scss */
+      /* line 142, src/components/board/list/card/_modal.scss */
       .modal__main .description__display {
         display: block;
         font-size: 1.8rem; }
-    /* line 129, src/components/board/list/card/_modal.scss */
+    /* line 148, src/components/board/list/card/_modal.scss */
     .modal__main .checklist {
       width: 100%;
       margin-bottom: 4rem; }
-      /* line 134, src/components/board/list/card/_modal.scss */
+      /* line 153, src/components/board/list/card/_modal.scss */
       .modal__main .checklist__items .item {
         display: flex; }
-        /* line 136, src/components/board/list/card/_modal.scss */
+        /* line 155, src/components/board/list/card/_modal.scss */
         .modal__main .checklist__items .item__checkbox {
           height: 1.8rem;
           width: 1.8rem;
@@ -208,38 +227,38 @@ body {
           border: 2px solid #888;
           margin-right: 2rem;
           cursor: pointer; }
-          /* line 145, src/components/board/list/card/_modal.scss */
+          /* line 164, src/components/board/list/card/_modal.scss */
           .modal__main .checklist__items .item__checkbox--unchecked {
             background-color: white; }
-          /* line 149, src/components/board/list/card/_modal.scss */
+          /* line 168, src/components/board/list/card/_modal.scss */
           .modal__main .checklist__items .item__checkbox--checked {
             position: relative;
             background-color: blue;
             color: white;
             font-size: 1.5rem; }
-            /* line 155, src/components/board/list/card/_modal.scss */
+            /* line 174, src/components/board/list/card/_modal.scss */
             .modal__main .checklist__items .item__checkbox--checked .checkmark {
               position: absolute;
               top: 50%;
               left: 50%;
               transform: translate(-50%, -50%); }
-        /* line 164, src/components/board/list/card/_modal.scss */
+        /* line 183, src/components/board/list/card/_modal.scss */
         .modal__main .checklist__items .item__title {
           font-size: 1.8rem; }
-        /* line 169, src/components/board/list/card/_modal.scss */
+        /* line 188, src/components/board/list/card/_modal.scss */
         .modal__main .checklist__items .item__delete {
           margin-left: 2rem;
           font-size: 1.5rem;
           cursor: pointer; }
-          /* line 174, src/components/board/list/card/_modal.scss */
+          /* line 193, src/components/board/list/card/_modal.scss */
           .modal__main .checklist__items .item__delete:hover {
             color: red; }
-    /* line 182, src/components/board/list/card/_modal.scss */
+    /* line 201, src/components/board/list/card/_modal.scss */
     .modal__main .sidemenu {
       position: relative;
       padding-left: 2rem;
       padding-right: 2rem; }
-      /* line 187, src/components/board/list/card/_modal.scss */
+      /* line 206, src/components/board/list/card/_modal.scss */
       .modal__main .sidemenu__button {
         display: block;
         background-color: #888;
@@ -251,10 +270,10 @@ body {
         border-radius: 0.5rem;
         border: #888;
         cursor: pointer; }
-        /* line 199, src/components/board/list/card/_modal.scss */
+        /* line 218, src/components/board/list/card/_modal.scss */
         .modal__main .sidemenu__button:hover {
           background-color: #444; }
-      /* line 204, src/components/board/list/card/_modal.scss */
+      /* line 223, src/components/board/list/card/_modal.scss */
       .modal__main .sidemenu__panel {
         position: absolute;
         width: 20rem;
@@ -264,26 +283,26 @@ body {
         border: solid 2px #888;
         border-radius: 5px;
         padding: 1rem; }
-        /* line 214, src/components/board/list/card/_modal.scss */
+        /* line 233, src/components/board/list/card/_modal.scss */
         .modal__main .sidemenu__panel--heading {
           text-align: center;
           font-size: 2rem;
           margin-bottom: 1rem; }
-        /* line 220, src/components/board/list/card/_modal.scss */
+        /* line 239, src/components/board/list/card/_modal.scss */
         .modal__main .sidemenu__panel--close {
           position: absolute;
           top: 3px;
           right: 1rem;
           cursor: pointer;
           font-size: 3rem; }
-          /* line 227, src/components/board/list/card/_modal.scss */
+          /* line 246, src/components/board/list/card/_modal.scss */
           .modal__main .sidemenu__panel--close:hover {
             color: red; }
-        /* line 232, src/components/board/list/card/_modal.scss */
+        /* line 251, src/components/board/list/card/_modal.scss */
         .modal__main .sidemenu__panel--label {
           margin-top: 1rem;
           font-size: 1.4rem; }
-        /* line 237, src/components/board/list/card/_modal.scss */
+        /* line 256, src/components/board/list/card/_modal.scss */
         .modal__main .sidemenu__panel--select {
           margin-top: 1rem;
           margin-bottom: 1rem;
@@ -291,7 +310,7 @@ body {
           width: 100%;
           font-size: 1.4rem;
           padding: 5px; }
-        /* line 246, src/components/board/list/card/_modal.scss */
+        /* line 265, src/components/board/list/card/_modal.scss */
         .modal__main .sidemenu__panel--submit {
           padding: 0.5rem 1rem 0.5rem 1rem;
           cursor: pointer;
@@ -299,10 +318,10 @@ body {
           background-color: #4fa644;
           border-radius: 5px;
           border: none; }
-          /* line 254, src/components/board/list/card/_modal.scss */
+          /* line 273, src/components/board/list/card/_modal.scss */
           .modal__main .sidemenu__panel--submit:hover {
             background-color: #387430; }
-          /* line 258, src/components/board/list/card/_modal.scss */
+          /* line 277, src/components/board/list/card/_modal.scss */
           .modal__main .sidemenu__panel--submit:active, .modal__main .sidemenu__panel--submit:focus {
             outline: none; }
 
@@ -480,42 +499,51 @@ body {
   position: fixed;
   top: 9rem;
   right: calc(-1 * 40rem);
-  height: calc(var(--vh, 1vh) * 100 - 7.7rem);
+  height: calc(var(--vh, 1vh) * 100 - 9rem);
   width: 40rem; }
+  @media only screen and (max-width: 400px) {
+    /* line 1, src/components/navbar/_sidebar.scss */
+    #sidebar-root {
+      width: 100vw; } }
 
-/* line 9, src/components/navbar/_sidebar.scss */
+/* line 13, src/components/navbar/_sidebar.scss */
 .portal-inner {
   height: 100%; }
 
-/* line 13, src/components/navbar/_sidebar.scss */
+/* line 17, src/components/navbar/_sidebar.scss */
 .sidebar {
   position: absolute;
-  height: calc(var(--vh, 1vh) * 100 - 7.7rem);
+  height: calc(var(--vh, 1vh) * 100 - 9rem);
   background-color: #e0e4ff;
+  border-left: 2px solid white;
   border-radius: 8px 0 0 8px;
   width: 40rem;
   padding: 1.5rem;
   transition: left 0.3s; }
-  /* line 16, src/components/navbar/_sidebar.scss */
+  /* line 20, src/components/navbar/_sidebar.scss */
   .sidebar--hidden {
     left: 0rem; }
-  /* line 20, src/components/navbar/_sidebar.scss */
+  /* line 24, src/components/navbar/_sidebar.scss */
   .sidebar--shown {
     left: calc(-1 * 40rem); }
-  /* line 31, src/components/navbar/_sidebar.scss */
+  @media only screen and (max-width: 400px) {
+    /* line 17, src/components/navbar/_sidebar.scss */
+    .sidebar {
+      width: 100vw; } }
+  /* line 40, src/components/navbar/_sidebar.scss */
   .sidebar__wrapper {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 40rem; }
-  /* line 41, src/components/navbar/_sidebar.scss */
+  /* line 49, src/components/navbar/_sidebar.scss */
   .sidebar .sidebar-menu__heading {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 1.5rem; }
-  /* line 48, src/components/navbar/_sidebar.scss */
+  /* line 56, src/components/navbar/_sidebar.scss */
   .sidebar .sidebar-menu__item {
     font-size: 2rem;
     padding: 2rem 1rem 2rem 1rem;
@@ -525,51 +553,56 @@ body {
     border-radius: 3px;
     background-color: #e0e4ff;
     cursor: pointer; }
-    /* line 57, src/components/navbar/_sidebar.scss */
+    /* line 65, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__item:hover {
       background-color: #9093ad; }
-  /* line 62, src/components/navbar/_sidebar.scss */
+  /* line 70, src/components/navbar/_sidebar.scss */
   .sidebar .sidebar-menu__close {
     position: absolute;
     top: 3px;
     right: 1rem;
     cursor: pointer;
     font-size: 3rem; }
-    /* line 69, src/components/navbar/_sidebar.scss */
+    /* line 77, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__close:hover {
       color: red; }
-  /* line 74, src/components/navbar/_sidebar.scss */
+  /* line 82, src/components/navbar/_sidebar.scss */
   .sidebar .sidebar-menu__interface {
     position: absolute;
     top: 0;
     width: 40rem;
-    height: 100%;
+    height: calc(var(--vh, 1vh) * 100 - 9rem);
+    overflow-y: auto;
     background-color: white;
+    border-left: 2px solid #e0e4ff;
     border-radius: 8px 0 0 8px;
     padding: 1.5rem;
-    transition: all 0.3s;
-    overflow-y: hidden; }
-    /* line 85, src/components/navbar/_sidebar.scss */
+    transition: all 0.3s; }
+    @media only screen and (max-width: 400px) {
+      /* line 82, src/components/navbar/_sidebar.scss */
+      .sidebar .sidebar-menu__interface {
+        width: 100vw; } }
+    /* line 99, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface--hidden {
       right: calc(-1 * 40rem); }
-    /* line 89, src/components/navbar/_sidebar.scss */
+    /* line 103, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface--visible {
       right: 0; }
-    /* line 93, src/components/navbar/_sidebar.scss */
+    /* line 107, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface--close {
       position: absolute;
       top: 3px;
       right: 1rem;
       cursor: pointer;
       font-size: 3rem; }
-      /* line 100, src/components/navbar/_sidebar.scss */
+      /* line 114, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface--close:hover {
         color: red; }
-    /* line 106, src/components/navbar/_sidebar.scss */
+    /* line 120, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface .archive-toggle {
       display: flex;
       justify-content: center; }
-      /* line 110, src/components/navbar/_sidebar.scss */
+      /* line 124, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface .archive-toggle__button {
         width: 25%;
         font-size: 2rem;
@@ -578,26 +611,26 @@ body {
         border-radius: 5px;
         border: none;
         margin: 0.5rem; }
-        /* line 119, src/components/navbar/_sidebar.scss */
+        /* line 133, src/components/navbar/_sidebar.scss */
         .sidebar .sidebar-menu__interface .archive-toggle__button:focus {
           outline: none; }
-        /* line 123, src/components/navbar/_sidebar.scss */
+        /* line 137, src/components/navbar/_sidebar.scss */
         .sidebar .sidebar-menu__interface .archive-toggle__button--inactive {
           background-color: #444;
           cursor: pointer; }
-        /* line 128, src/components/navbar/_sidebar.scss */
+        /* line 142, src/components/navbar/_sidebar.scss */
         .sidebar .sidebar-menu__interface .archive-toggle__button--active {
           background-color: blue; }
-    /* line 134, src/components/navbar/_sidebar.scss */
+    /* line 148, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface .archive__list {
       margin-top: 2rem; }
-    /* line 138, src/components/navbar/_sidebar.scss */
+    /* line 152, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface .archive__item {
       display: flex;
       justify-content: space-around;
       align-items: flex-center;
       margin-bottom: 2rem; }
-      /* line 144, src/components/navbar/_sidebar.scss */
+      /* line 158, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface .archive__item--title {
         font-size: 2rem;
         padding: 1em 4rem 1rem 4rem;
@@ -605,7 +638,7 @@ body {
         background-color: #ddd;
         border-radius: 5px;
         width: 50%; }
-      /* line 153, src/components/navbar/_sidebar.scss */
+      /* line 167, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface .archive__item--restore {
         font-size: 2rem;
         padding: 0.5rem 1rem 0.5rem 1rem;
@@ -615,7 +648,7 @@ body {
         border-radius: 5px;
         cursor: pointer;
         width: 25%; }
-    /* line 166, src/components/navbar/_sidebar.scss */
+    /* line 180, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface .colors {
       display: flex;
       flex-wrap: wrap; }

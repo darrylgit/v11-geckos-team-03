@@ -2,8 +2,12 @@
   position: fixed;
   top: 9rem;
   right: calc(-1 * #{$sidebar-width});
-  height: calc(var(--vh, 1vh) * 100 - 7.7rem);
+  height: calc(var(--vh, 1vh) * 100 - 9rem);
   width: $sidebar-width;
+
+  @media only screen and (max-width: 400px) {
+    width: 100vw;
+  }
 }
 
 .portal-inner {
@@ -21,19 +25,23 @@
     left: calc(-1 * #{$sidebar-width});
   }
 
-  height: calc(var(--vh, 1vh) * 100 - 7.7rem);
+  height: calc(var(--vh, 1vh) * 100 - 9rem);
   background-color: $component-background;
+  border-left: 2px solid white;
   border-radius: 8px 0 0 8px;
   width: $sidebar-width;
   padding: 1.5rem;
   transition: left 0.3s;
+
+  @media only screen and (max-width: 400px) {
+    width: 100vw;
+  }
 
   &__wrapper {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    //overflow: hidden;
     width: $sidebar-width;
   }
 
@@ -75,12 +83,18 @@
       position: absolute;
       top: 0;
       width: $sidebar-width;
-      height: 100%;
+
+      height: calc(var(--vh, 1vh) * 100 - 9rem);
+      overflow-y: auto;
       background-color: white;
+      border-left: 2px solid $component-background;
       border-radius: 8px 0 0 8px;
       padding: 1.5rem;
       transition: all 0.3s;
-      overflow-y: hidden;
+
+      @media only screen and (max-width: 400px) {
+        width: 100vw;
+      }
 
       &--hidden {
         right: calc(-1 * #{$sidebar-width});

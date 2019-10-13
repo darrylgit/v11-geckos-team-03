@@ -84,12 +84,10 @@ export default (state = [], action) => {
       // Locate corresponding card in store
       currentCards.forEach(card => {
         if (card.cardId === action.payload.cardId) {
-          // Locate corresponding checklist item inside that card's checklist
-          console.log(card.checklist);
+          // Locate corresponding checklist item inside, filter out item with payload's id
           card.checklist = card.checklist.filter(
             item => item.checklistItemId !== action.payload.checklistItemId
           );
-          console.log(card.checklist);
         }
       });
       return currentCards;
