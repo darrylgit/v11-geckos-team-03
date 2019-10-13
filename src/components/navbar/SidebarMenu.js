@@ -19,9 +19,12 @@ class SidebarMenu extends React.Component {
     return (
       <div className="sidebar-menu">
         <h2 className="sidebar-menu__heading">Menu</h2>
+        <div className="sidebar-menu__close" onClick={this.props.toggleSidebar}>
+          &times;
+        </div>
         <hr />
         <button className="sidebar-menu__item" onClick={this.toggleArchive}>
-          Archive
+          Show Archive
         </button>
         <button
           className="sidebar-menu__item"

@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
       return (
         <div className="sidebar__wrapper">
           <div className="sidebar sidebar--shown">
-            <SidebarMenu />
+            <SidebarMenu toggleSidebar={this.props.toggleSidebar} />
           </div>
         </div>
       );

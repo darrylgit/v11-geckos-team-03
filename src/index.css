@@ -7,14 +7,19 @@
   box-sizing: inherit; }
 
 /* line 9, src/sass/base/_base.scss */
+:root {
+  --body-background: blue;
+  --body-background-light: #00a2ff; }
+
+/* line 14, src/sass/base/_base.scss */
 html {
   font-size: 62.5%; }
 
-/* line 14, src/sass/base/_base.scss */
+/* line 19, src/sass/base/_base.scss */
 body {
   box-sizing: border-box;
   height: 100vh;
-  background-color: blue; }
+  background-color: var(--body-background); }
 
 /* line 1, src/sass/base/_typography.scss */
 body {
@@ -367,27 +372,27 @@ body {
     margin-left: 10px;
     padding: 5px 0;
     grid-area: title;
-    background-color: blue;
+    background-color: var(--body-background);
     border: none;
     border-radius: 0.5rem;
     font-size: 2em;
     font-weight: 700;
     color: white;
     text-align: center; }
-  /* line 31, src/components/navbar/_navbar.scss */
+  /* line 32, src/components/navbar/_navbar.scss */
   .navbar__input--infocus {
     background-color: white;
     color: #333; }
-  /* line 36, src/components/navbar/_navbar.scss */
+  /* line 37, src/components/navbar/_navbar.scss */
   .navbar__input--hover {
-    background-color: #00a2ff; }
-  /* line 40, src/components/navbar/_navbar.scss */
+    background-color: var(--body-background-light); }
+  /* line 42, src/components/navbar/_navbar.scss */
   .navbar__menu {
     grid-area: menu;
     margin-right: 30px;
     color: white;
     cursor: pointer; }
-  /* line 47, src/components/navbar/_navbar.scss */
+  /* line 49, src/components/navbar/_navbar.scss */
   .navbar__menu h1 {
     font-weight: 100; }
 
@@ -444,6 +449,16 @@ body {
     .sidebar .sidebar-menu__item:hover {
       background-color: #9093ad; }
   /* line 61, src/components/navbar/_sidebar.scss */
+  .sidebar .sidebar-menu__close {
+    position: absolute;
+    top: 3px;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 3rem; }
+    /* line 68, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__close:hover {
+      color: red; }
+  /* line 73, src/components/navbar/_sidebar.scss */
   .sidebar .sidebar-menu__interface {
     position: absolute;
     top: 0;
@@ -454,27 +469,27 @@ body {
     padding: 1.5rem;
     transition: all 0.3s;
     overflow-y: hidden; }
-    /* line 72, src/components/navbar/_sidebar.scss */
+    /* line 84, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface--hidden {
       right: calc(-1 * 40rem); }
-    /* line 76, src/components/navbar/_sidebar.scss */
+    /* line 88, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface--visible {
       right: 0; }
-    /* line 80, src/components/navbar/_sidebar.scss */
+    /* line 92, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface--close {
       position: absolute;
       top: 3px;
       right: 1rem;
       cursor: pointer;
       font-size: 3rem; }
-      /* line 87, src/components/navbar/_sidebar.scss */
+      /* line 99, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface--close:hover {
         color: red; }
-    /* line 93, src/components/navbar/_sidebar.scss */
+    /* line 105, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface .archive-toggle {
       display: flex;
       justify-content: center; }
-      /* line 97, src/components/navbar/_sidebar.scss */
+      /* line 109, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface .archive-toggle__button {
         width: 25%;
         font-size: 2rem;
@@ -483,33 +498,33 @@ body {
         border-radius: 5px;
         border: none;
         margin: 0.5rem; }
-        /* line 106, src/components/navbar/_sidebar.scss */
+        /* line 118, src/components/navbar/_sidebar.scss */
         .sidebar .sidebar-menu__interface .archive-toggle__button:focus {
           outline: none; }
-        /* line 110, src/components/navbar/_sidebar.scss */
+        /* line 122, src/components/navbar/_sidebar.scss */
         .sidebar .sidebar-menu__interface .archive-toggle__button--inactive {
           background-color: #444;
           cursor: pointer; }
-        /* line 115, src/components/navbar/_sidebar.scss */
+        /* line 127, src/components/navbar/_sidebar.scss */
         .sidebar .sidebar-menu__interface .archive-toggle__button--active {
           background-color: blue; }
-    /* line 121, src/components/navbar/_sidebar.scss */
+    /* line 133, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface .archive__list {
       margin-top: 2rem; }
-    /* line 125, src/components/navbar/_sidebar.scss */
+    /* line 137, src/components/navbar/_sidebar.scss */
     .sidebar .sidebar-menu__interface .archive__item {
       display: flex;
       justify-content: space-around;
       align-items: flex-center;
       margin-bottom: 2rem; }
-      /* line 131, src/components/navbar/_sidebar.scss */
+      /* line 143, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface .archive__item--title {
         font-size: 2rem;
         padding: 1em 4rem 1rem 4rem;
         text-align: center;
         background-color: #ddd;
         border-radius: 5px; }
-      /* line 139, src/components/navbar/_sidebar.scss */
+      /* line 151, src/components/navbar/_sidebar.scss */
       .sidebar .sidebar-menu__interface .archive__item--restore {
         font-size: 2rem;
         padding: 0.5rem 1rem 0.5rem 1rem;
@@ -518,3 +533,7 @@ body {
         color: white;
         border-radius: 5px;
         cursor: pointer; }
+    /* line 163, src/components/navbar/_sidebar.scss */
+    .sidebar .sidebar-menu__interface .colors {
+      display: flex;
+      flex-wrap: wrap; }

@@ -58,6 +58,18 @@
       }
     }
 
+    &__close {
+      position: absolute;
+      top: 3px;
+      right: 1rem;
+      cursor: pointer;
+      font-size: 3rem;
+
+      &:hover {
+        color: red;
+      }
+    }
+
     &__interface {
       position: absolute;
       top: 0;
@@ -146,6 +158,11 @@
             cursor: pointer;
           }
         }
+      }
+
+      .colors {
+        display: flex;
+        flex-wrap: wrap;
       }
     }
   }

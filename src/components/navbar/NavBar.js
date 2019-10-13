@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import BoardTitle from "./BoardTitle";
 import Logo from "./Logo";
-import Menu from "./Menu";
+import MenuButton from "./MenuButton";
 import Sidebar from "./Sidebar";
 import SidebarPortal from "./SidebarPortal";
 
@@ -26,12 +26,15 @@ class NavBar extends Component {
       <div className="navbar">
         <Logo />
         <BoardTitle />
-        <Menu
+        <MenuButton
           toggleSidebar={this.toggleSidebar}
           sidebarHidden={this.state.sidebarHidden}
         />
         <SidebarPortal>
-          <Sidebar hidden={this.state.sidebarHidden} />
+          <Sidebar
+            hidden={this.state.sidebarHidden}
+            toggleSidebar={this.toggleSidebar}
+          />
         </SidebarPortal>
       </div>
     );

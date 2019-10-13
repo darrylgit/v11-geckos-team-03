@@ -1,6 +1,6 @@
 import React from "react";
 
-const Menu = props => {
+const MenuButton = props => {
   if (props.sidebarHidden) {
     return (
       <div className="menu navbar__menu">
@@ -16,4 +16,4 @@ const Menu = props => {
   }
 };
 
-export default Menu;
+export default MenuButton;
