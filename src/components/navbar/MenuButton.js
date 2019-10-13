@@ -12,7 +12,7 @@ const MenuButton = props => {
   };
 
   return (
-    <div className="navbar__menu">
+    <div className="navbar__menu-wrapper">
       <h1
         onClick={props.toggleSidebar}
         onMouseOver={onMouseOverHandler}

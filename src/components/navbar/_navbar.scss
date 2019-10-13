@@ -37,13 +37,18 @@
     background-color: var(--body-background-light);
   }
 
-  &__menu {
+  &__menu-wrapper {
     grid-area: menu;
-    margin-right: 1.5rem;
+    margin-right: 3rem;
+  }
+
+  &__menu {
     color: white;
     cursor: pointer;
     border-radius: 5px;
+
     padding: 5px;
+    border: 2px solid var(--body-background-light);
 
     &--hover {
       background-color: var(--body-background-light);
