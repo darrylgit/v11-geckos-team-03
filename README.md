@@ -1,3 +1,3 @@
-# v11-geckos-team-03
+# Geckorello
 
-Add-project-description-here | Voyage-11 | https://chingu.io/ | Twitter: https://twitter.com/ChinguCollabs
+This project was made collaboratively as a part of Chingu Cohorts with the goal of cloning the front end of Trello. Launch now at https://signiorgratiano.github.io/v11-geckos-team-03/
