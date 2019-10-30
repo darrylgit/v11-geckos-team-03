@@ -4,6 +4,7 @@
   right: calc(-1 * #{$sidebar-width});
   height: calc(var(--vh, 1vh) * 100 - 9rem);
   width: $sidebar-width;
+  z-index: 2;
 
   @media only screen and (max-width: 400px) {
     width: 100vw;
